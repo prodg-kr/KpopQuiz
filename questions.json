@@ -1,41 +1,559 @@
-[
-  {"question": "어떤 그룹이 'Dynamite'를 발매했나요?", "options": ["BLACKPINK", "BTS", "SEVENTEEN", "EXO"], "answer": 1},
-  {"question": "뉴진스(NewJeans)의 데뷔곡으로 알려진 곡은?", "options": ["Ditto", "Hype Boy", "Attention", "Super Shy"], "answer": 2},
-  {"question": "아이유(IU)의 본명은 무엇인가요?", "options": ["이지은", "김지은", "박지은", "최지은"], "answer": 0},
-  {"question": "BLACKPINK의 리더는 누구인가요?", "options": ["리사", "지수", "제니", "로제"], "answer": 1},
-  {"question": "TWICE의 팬덤 이름은?", "options": ["ONCE", "MOA", "CARAT", "MIDZY"], "answer": 0},
-  {"question": "SEVENTEEN은 몇 명의 멤버로 구성되어 있나요?", "options": ["13명", "17명", "12명", "14명"], "answer": 0},
-  {"question": "IVE의 히트곡으로 2022년에 큰 인기를 끈 곡은?", "options": ["LOVE DIVE", "ELEVEN", "After LIKE", "I AM"], "answer": 0},
-  {"question": "Stray Kids의 리더는 누구인가요?", "options": ["리노", "방찬", "현진", "한"], "answer": 1},
-  {"question": "LE SSERAFIM의 그룹명 의미와 가장 가까운 것은?", "options": ["두려움 없는", "빛나는 소녀들", "새로운 시작", "강인한 의지"], "answer": 0},
-  {"question": "EXO의 대표곡으로 2015년에 발표된 곡은?", "options": ["Growl", "Love Shot", "Call Me Baby", "Ko Ko Bop"], "answer": 2},
-  {"question": "BTS가 Billboard 200 1위를 한 첫 K-pop 그룹인가요?", "options": ["아니오", "예"], "answer": 1},
-  {"question": "Red Velvet의 데뷔곡은?", "options": ["Ice Cream Cake", "Happiness", "Red Flavor", "Dumb Dumb"], "answer": 1},
-  {"question": "Psy의 히트곡은?", "options": ["Gentleman", "Gangnam Style", "That Man", "Champion"], "answer": 1},
-  {"question": "최초 K-pop 걸그룹 S.E.S 데뷔 연도는?", "options": ["1995", "1996", "1997", "1998"], "answer": 2},
-  {"question": "BIGBANG의 대표곡?", "options": ["Fantastic Baby", "Bang Bang Bang", "Loser", "If You"], "answer": 0},
-  {"question": "NCT의 서브 유닛 중 하나는?", "options": ["NCT 127", "NCT Dream", "WayV", "모두"], "answer": 3},
-  {"question": "ATEEZ의 팬덤 이름은?", "options": ["ATINY", "ARMY", "BLINK", "CARAT"], "answer": 0},
-  {"question": "ITZY의 슬로건은?", "options": ["DALLA DALLA", "Wannabe", "Not Shy", "LOCO"], "answer": 0},
-  {"question": "TXT의 소속사는?", "options": ["HYBE", "JYP", "SM", "YG"], "answer": 0},
-  {"question": "ENHYPEN의 데뷔곡은?", "options": ["Given-Taken", "Drunk-Dazed", "Fever", "Tamed-Dashed"], "answer": 0},
-  {"question": "(G)I-DLE의 리더는?", "options": ["미연", "수진", "소연", "민니"], "answer": 2},
-  {"question": "aespa의 컨셉은?", "options": ["메타버스", "걸크러시", "청순", "섹시"], "answer": 0},
-  {"question": "Mamamoo의 대표곡?", "options": ["HIP", "Starry Night", "Egotistic", "gogobebe"], "answer": 2},
-  {"question": "TREASURE의 멤버 수는?", "options": ["10명", "12명", "13명", "9명"], "answer": 1},
-  {"question": "BOYNEXTDOOR 데뷔 연도?", "options": ["2022", "2023", "2024", "2021"], "answer": 2},
-  {"question": "ZEROBASEONE 팬덤 이름?", "options": ["ZEROSE", "ZIZI", "ZEROZ", "ZEMMA"], "answer": 0},
-  {"question": "Super Junior의 리더?", "options": ["이특", "규현", "희철", "동해"], "answer": 0},
-  {"question": "Girls' Generation 데뷔곡?", "options": ["Gee", "Genie", "Into the New World", "Oh!"], "answer": 2},
-  {"question": "지드래곤의 소속사는?", "options": ["YG", "SM", "JYP", "HYBE"], "answer": 0},
-  {"question": "CL의 대표곡?", "options": ["The Baddest Female", "MTBD", "Lifted", "Doctor Pepper"], "answer": 0},
-  {"question": "비의 히트곡?", "options": ["Rainism", "Blood", "I'm Coming", "Love Song"], "answer": 0},
-  {"question": "H.O.T.의 히트곡?", "options": ["Candy", "Wolf", "Full of Love", "Desire"], "answer": 0},
-  {"question": "BTS 멤버 본명 RM?", "options": ["김남준", "김석진", "민윤기", "정호석"], "answer": 0},
-  {"question": "진의 본명?", "options": ["김석진", "박지민", "김태형", "전정국"], "answer": 0},
-  {"question": "슈가 본명?", "options": ["민윤기", "김남준", "김석진", "박지민"], "answer": 0},
-  {"question": "제이홉 본명?", "options": ["정호석", "김석진", "민윤기", "김남준"], "answer": 0},
-  {"question": "지민 본명?", "options": ["박지민", "김태형", "전정국", "정호석"], "answer": 0},
-  {"question": "뷔 본명?", "options": ["김태형", "박지민", "전정국", "김석진"], "answer": 0},
-  {"question": "정국 본명?", "options": ["전정국", "김태형", "박지민", "정호석"], "answer": 0}
-]
+{
+“version”: “1.0.0”,
+“lastUpdated”: “2026-01-17”,
+“totalQuestions”: 100,
+“categories”: {
+“artist”: [
+{
+“id”: “art001”,
+“question”: “어떤 그룹이 ‘Dynamite’를 발매했나요?”,
+“options”: [“BLACKPINK”, “BTS”, “SEVENTEEN”, “EXO”],
+“answer”: 1,
+“explanation”: “BTS는 2020년에 ‘Dynamite’를 발매하여 빌보드 Hot 100 1위를 차지했습니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “art002”,
+“question”: “BLACKPINK의 리더는 누구인가요?”,
+“options”: [“리사”, “지수”, “제니”, “로제”],
+“answer”: 1,
+“explanation”: “지수는 BLACKPINK의 공식 리더입니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “art003”,
+“question”: “TWICE는 몇 명의 멤버로 구성되어 있나요?”,
+“options”: [“7명”, “9명”, “8명”, “10명”],
+“answer”: 1,
+“explanation”: “TWICE는 9명의 멤버로 구성되어 있습니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “art004”,
+“question”: “Stray Kids의 리더는 누구인가요?”,
+“options”: [“리노”, “방찬”, “현진”, “한”],
+“answer”: 1,
+“explanation”: “방찬은 Stray Kids의 리더이자 프로듀서입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “art005”,
+“question”: “SEVENTEEN은 몇 명의 멤버로 구성되어 있나요?”,
+“options”: [“13명”, “17명”, “12명”, “14명”],
+“answer”: 0,
+“explanation”: “SEVENTEEN은 13명의 멤버로 구성되어 있습니다. (13명 + 3개 유닛 + 1개 그룹 = 17)”,
+“difficulty”: “medium”
+},
+{
+“id”: “art006”,
+“question”: “Red Velvet의 막내 멤버는?”,
+“options”: [“예리”, “조이”, “아이린”, “슬기”],
+“answer”: 0,
+“explanation”: “예리는 1999년생으로 Red Velvet의 막내입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “art007”,
+“question”: “아이유(IU)의 본명은 무엇인가요?”,
+“options”: [“이지은”, “김지은”, “박지은”, “최지은”],
+“answer”: 0,
+“explanation”: “아이유의 본명은 이지은입니다.”,
+“difficulty”: “hard”
+},
+{
+“id”: “art008”,
+“question”: “LE SSERAFIM의 그룹명 의미와 가장 가까운 것은?”,
+“options”: [“두려움 없는”, “빛나는 소녀들”, “새로운 시작”, “강인한 의지”],
+“answer”: 0,
+“explanation”: “LE SSERAFIM은 ‘I’m Fearless’의 애너그램으로 ‘두려움 없는’의 의미를 담고 있습니다.”,
+“difficulty”: “hard”
+},
+{
+“id”: “art009”,
+“question”: “NCT의 ‘NCT’는 무엇의 약자인가요?”,
+“options”: [“New Culture Technology”, “Neo Culture Technology”, “New Creative Team”, “Neo Creative Technology”],
+“answer”: 1,
+“explanation”: “NCT는 ‘Neo Culture Technology’의 약자입니다.”,
+“difficulty”: “hard”
+},
+{
+“id”: “art010”,
+“question”: “GOT7의 리더는 누구인가요?”,
+“options”: [“JB”, “마크”, “잭슨”, “진영”],
+“answer”: 0,
+“explanation”: “JB(JAY B)는 GOT7의 리더입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “art011”,
+“question”: “aespa는 몇 명의 멤버로 구성되어 있나요?”,
+“options”: [“3명”, “4명”, “5명”, “6명”],
+“answer”: 1,
+“explanation”: “aespa는 카리나, 지젤, 윈터, 닝닝 4명으로 구성되어 있습니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “art012”,
+“question”: “(여자)아이들의 리더는 누구인가요?”,
+“options”: [“미연”, “소연”, “우기”, “민니”],
+“answer”: 1,
+“explanation”: “소연은 (여자)아이들의 리더이자 메인 프로듀서입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “art013”,
+“question”: “ITZY의 리더는 누구인가요?”,
+“options”: [“예지”, “리아”, “류진”, “채령”],
+“answer”: 0,
+“explanation”: “예지는 ITZY의 리더입니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “art014”,
+“question”: “ENHYPEN의 리더는 누구인가요?”,
+“options”: [“희승”, “정원”, “제이”, “니키”],
+“answer”: 0,
+“explanation”: “희승은 ENHYPEN의 리더입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “art015”,
+“question”: “TXT(투모로우바이투게더)의 리더는 누구인가요?”,
+“options”: [“수빈”, “연준”, “범규”, “태현”],
+“answer”: 0,
+“explanation”: “수빈은 TXT의 리더입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “art016”,
+“question”: “MONSTA X의 리더는 누구인가요?”,
+“options”: [“셔누”, “기현”, “민혁”, “형원”],
+“answer”: 0,
+“explanation”: “셔누는 MONSTA X의 리더입니다.”,
+“difficulty”: “hard”
+},
+{
+“id”: “art017”,
+“question”: “IZ*ONE의 활동 기간은?”,
+“options”: [“2년”, “2년 6개월”, “3년”, “4년”],
+“answer”: 1,
+“explanation”: “IZ*ONE은 2018년 10월부터 2021년 4월까지 약 2년 6개월 활동했습니다.”,
+“difficulty”: “hard”
+},
+{
+“id”: “art018”,
+“question”: “Girls’ Generation(소녀시대)의 원래 멤버 수는?”,
+“options”: [“7명”, “8명”, “9명”, “10명”],
+“answer”: 2,
+“explanation”: “소녀시대는 데뷔 시 9명의 멤버로 구성되었습니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “art019”,
+“question”: “BIGBANG의 리더는 누구인가요?”,
+“options”: [“G-Dragon”, “T.O.P”, “태양”, “대성”],
+“answer”: 0,
+“explanation”: “G-Dragon은 BIGBANG의 리더입니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “art020”,
+“question”: “2NE1의 리더는 누구인가요?”,
+“options”: [“CL”, “박봄”, “산다라박”, “공민지”],
+“answer”: 0,
+“explanation”: “CL은 2NE1의 리더였습니다.”,
+“difficulty”: “medium”
+}
+],
+“song”: [
+{
+“id”: “sng001”,
+“question”: “뉴진스(NewJeans)의 데뷔곡으로 알려진 곡은?”,
+“options”: [“Ditto”, “Hype Boy”, “Attention”, “Super Shy”],
+“answer”: 2,
+“explanation”: “‘Attention’은 NewJeans의 데뷔 싱글로 2022년 7월에 발매되었습니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “sng002”,
+“question”: “IVE의 히트곡으로 2022년에 큰 인기를 끈 곡은?”,
+“options”: [“LOVE DIVE”, “ELEVEN”, “After LIKE”, “I AM”],
+“answer”: 0,
+“explanation”: “‘LOVE DIVE’는 2022년 4월에 발매되어 큰 인기를 끌었습니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “sng003”,
+“question”: “EXO의 대표곡으로 2015년에 발표된 곡은?”,
+“options”: [“Growl”, “Love Shot”, “Call Me Baby”, “Ko Ko Bop”],
+“answer”: 2,
+“explanation”: “‘Call Me Baby’는 2015년 3월 EXO의 정규 2집 타이틀곡으로 발매되었습니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “sng004”,
+“question”: “방탄소년단의 첫 빌보드 1위 곡은?”,
+“options”: [“Butter”, “Dynamite”, “Life Goes On”, “Permission to Dance”],
+“answer”: 1,
+“explanation”: “‘Dynamite’는 2020년 BTS의 첫 빌보드 Hot 100 1위 곡입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “sng005”,
+“question”: “TWICE의 데뷔곡은 무엇인가요?”,
+“options”: [“Cheer Up”, “TT”, “Like OOH-AHH”, “Signal”],
+“answer”: 2,
+“explanation”: “‘Like OOH-AHH’는 2015년 TWICE의 데뷔 싱글입니다.”,
+“difficulty”: “hard”
+},
+{
+“id”: “sng006”,
+“question”: “PSY의 ‘Gangnam Style’은 어느 해에 발표되었나요?”,
+“options”: [“2010년”, “2011년”, “2012년”, “2013년”],
+“answer”: 2,
+“explanation”: “‘Gangnam Style’은 2012년 7월에 발표되어 전 세계적으로 큰 인기를 끌었습니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “sng007”,
+“question”: “BLACKPINK의 첫 1억 뷰 달성 곡은?”,
+“options”: [“DDU-DU DDU-DU”, “BOOMBAYAH”, “As If It’s Your Last”, “WHISTLE”],
+“answer”: 1,
+“explanation”: “‘BOOMBAYAH’는 BLACKPINK의 첫 1억 뷰 달성 곡입니다.”,
+“difficulty”: “hard”
+},
+{
+“id”: “sng008”,
+“question”: “Red Velvet의 ‘Russian Roulette’은 어느 해에 발표되었나요?”,
+“options”: [“2015년”, “2016년”, “2017년”, “2018년”],
+“answer”: 1,
+“explanation”: “‘Russian Roulette’은 2016년 9월에 발표되었습니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “sng009”,
+“question”: “aespa의 데뷔곡은?”,
+“options”: [“Next Level”, “Black Mamba”, “Savage”, “Girls”],
+“answer”: 1,
+“explanation”: “‘Black Mamba’는 2020년 11월에 발표된 aespa의 데뷔곡입니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “sng010”,
+“question”: “ITZY의 데뷔곡은?”,
+“options”: [“ICY”, “WANNABE”, “DALLA DALLA”, “Not Shy”],
+“answer”: 2,
+“explanation”: “‘DALLA DALLA’는 2019년 2월에 발표된 ITZY의 데뷔곡입니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “sng011”,
+“question”: “Stray Kids의 ‘God’s Menu’는 어느 해에 발표되었나요?”,
+“options”: [“2019년”, “2020년”, “2021년”, “2022년”],
+“answer”: 1,
+“explanation”: “‘God’s Menu’는 2020년 6월에 발표되었습니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “sng012”,
+“question”: “SEVENTEEN의 ‘Don’t Wanna Cry’는 어느 앨범 수록곡인가요?”,
+“options”: [“Al1”, “Teen, Age”, “An Ode”, “Your Choice”],
+“answer”: 0,
+“explanation”: “‘Don’t Wanna Cry’는 2017년 ‘Al1’ 앨범의 타이틀곡입니다.”,
+“difficulty”: “hard”
+},
+{
+“id”: “sng013”,
+“question”: “TXT의 데뷔곡은?”,
+“options”: [“Run Away”, “Crown”, “Cat & Dog”, “Blue Hour”],
+“answer”: 1,
+“explanation”: “‘Crown’은 2019년 3월 TXT의 데뷔곡입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “sng014”,
+“question”: “Girls’ Generation의 ‘Gee’는 어느 해에 발표되었나요?”,
+“options”: [“2007년”, “2008년”, “2009년”, “2010년”],
+“answer”: 2,
+“explanation”: “‘Gee’는 2009년 1월에 발표되어 큰 인기를 끌었습니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “sng015”,
+“question”: “BIGBANG의 ‘Fantastic Baby’는 어느 해에 발표되었나요?”,
+“options”: [“2010년”, “2011년”, “2012년”, “2013년”],
+“answer”: 2,
+“explanation”: “‘Fantastic Baby’는 2012년 2월에 발표되었습니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “sng016”,
+“question”: “(여자)아이들의 데뷔곡은?”,
+“options”: [“LATATA”, “HANN”, “Senorita”, “Lion”],
+“answer”: 0,
+“explanation”: “‘LATATA’는 2018년 5월 (여자)아이들의 데뷔곡입니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “sng017”,
+“question”: “LE SSERAFIM의 데뷔곡은?”,
+“options”: [“ANTIFRAGILE”, “FEARLESS”, “UNFORGIVEN”, “Eve, Psyche & the Bluebeard’s wife”],
+“answer”: 1,
+“explanation”: “‘FEARLESS’는 2022년 5월 LE SSERAFIM의 데뷔곡입니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “sng018”,
+“question”: “ENHYPEN의 데뷔곡은?”,
+“options”: [“Given-Taken”, “Drunk-Dazed”, “Fever”, “Tamed-Dashed”],
+“answer”: 0,
+“explanation”: “‘Given-Taken’은 2020년 11월 ENHYPEN의 데뷔곡입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “sng019”,
+“question”: “IU의 ‘Good Day’는 어느 해에 발표되었나요?”,
+“options”: [“2009년”, “2010년”, “2011년”, “2012년”],
+“answer”: 1,
+“explanation”: “‘Good Day’는 2010년 12월에 발표되어 큰 인기를 끌었습니다.”,
+“difficulty”: “hard”
+},
+{
+“id”: “sng020”,
+“question”: “2NE1의 ‘I Am The Best’는 어느 해에 발표되었나요?”,
+“options”: [“2009년”, “2010년”, “2011년”, “2012년”],
+“answer”: 2,
+“explanation”: “‘I Am The Best’는 2011년 6월에 발표되었습니다.”,
+“difficulty”: “medium”
+}
+],
+“general”: [
+{
+“id”: “gen001”,
+“question”: “TWICE의 팬덤 이름은?”,
+“options”: [“ONCE”, “MOA”, “CARAT”, “MIDZY”],
+“answer”: 0,
+“explanation”: “TWICE와 팬이 함께하면 ‘TWICE’가 된다는 의미로 ‘ONCE’입니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “gen002”,
+“question”: “BTS의 팬덤 이름은?”,
+“options”: [“BLINK”, “ARMY”, “EXO-L”, “VIP”],
+“answer”: 1,
+“explanation”: “BTS의 공식 팬덤 이름은 ‘ARMY’입니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “gen003”,
+“question”: “BLACKPINK의 팬덤 이름은?”,
+“options”: [“BLINK”, “PINK”, “ROSE”, “LILY”],
+“answer”: 0,
+“explanation”: “BLACKPINK의 공식 팬덤 이름은 ‘BLINK’입니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “gen004”,
+“question”: “JYP Entertainment 소속이 아닌 그룹은?”,
+“options”: [“TWICE”, “Stray Kids”, “BLACKPINK”, “ITZY”],
+“answer”: 2,
+“explanation”: “BLACKPINK는 YG Entertainment 소속입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “gen005”,
+“question”: “SM Entertainment의 창립자는?”,
+“options”: [“박진영”, “양현석”, “이수만”, “방시혁”],
+“answer”: 2,
+“explanation”: “이수만은 SM Entertainment의 창립자입니다.”,
+“difficulty”: “hard”
+},
+{
+“id”: “gen006”,
+“question”: “‘Big 3’ 기획사에 포함되지 않는 곳은?”,
+“options”: [“SM”, “YG”, “HYBE”, “JYP”],
+“answer”: 2,
+“explanation”: “전통적인 ‘Big 3’는 SM, YG, JYP를 의미합니다. HYBE는 ‘Big 4’에 포함됩니다.”,
+“difficulty”: “hard”
+},
+{
+“id”: “gen007”,
+“question”: “SEVENTEEN의 팬덤 이름은?”,
+“options”: [“ONCE”, “CARAT”, “MOA”, “STAY”],
+“answer”: 1,
+“explanation”: “SEVENTEEN의 팬덤 이름은 ‘CARAT’입니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “gen008”,
+“question”: “Stray Kids의 팬덤 이름은?”,
+“options”: [“STAY”, “SKZ”, “ZONE”, “LEVANTER”],
+“answer”: 0,
+“explanation”: “Stray Kids의 팬덤 이름은 ‘STAY’입니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “gen009”,
+“question”: “TXT의 팬덤 이름은?”,
+“options”: [“ARMY”, “MOA”, “TOMORROW”, “TOGETHER”],
+“answer”: 1,
+“explanation”: “TXT의 팬덤 이름은 ‘MOA’(Moments Of Alwaysness)입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “gen010”,
+“question”: “EXO의 팬덤 이름은?”,
+“options”: [“EXO-L”, “EXO-K”, “EXOTIC”, “EXOTICS”],
+“answer”: 0,
+“explanation”: “EXO의 팬덤 이름은 ‘EXO-L’입니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “gen011”,
+“question”: “Red Velvet의 팬덤 이름은?”,
+“options”: [“VELVET”, “REVELUV”, “REDLUV”, “REVEL”],
+“answer”: 1,
+“explanation”: “Red Velvet의 팬덤 이름은 ‘ReVeluv’입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “gen012”,
+“question”: “NCT의 팬덤 이름은?”,
+“options”: [“NCTzen”, “NCTIZENS”, “NEOCITY”, “NEOS”],
+“answer”: 0,
+“explanation”: “NCT의 팬덤 이름은 ‘NCTzen’입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “gen013”,
+“question”: “aespa의 팬덤 이름은?”,
+“options”: [“MY”, “SYNK”, “NÆVIS”, “AE”],
+“answer”: 0,
+“explanation”: “aespa의 팬덤 이름은 ‘MY’입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “gen014”,
+“question”: “(여자)아이들의 팬덤 이름은?”,
+“options”: [“NEVERLAND”, “IDLE”, “TOMBOY”, “QUEENDOM”],
+“answer”: 0,
+“explanation”: “(여자)아이들의 팬덤 이름은 ‘NEVERLAND’입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “gen015”,
+“question”: “ITZY의 팬덤 이름은?”,
+“options”: [“ITZY”, “MIDZY”, “ITZONE”, “WANNABE”],
+“answer”: 1,
+“explanation”: “ITZY의 팬덤 이름은 ‘MIDZY’입니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “gen016”,
+“question”: “NewJeans의 팬덤 이름은?”,
+“options”: [“Bunnies”, “Jeans”, “Tokki”, “NewBies”],
+“answer”: 0,
+“explanation”: “NewJeans의 팬덤 이름은 ‘Bunnies’(토끼즈)입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “gen017”,
+“question”: “IVE의 팬덤 이름은?”,
+“options”: [“DIVE”, “DIVER”, “IVE”, “ELEVEN”],
+“answer”: 0,
+“explanation”: “IVE의 팬덤 이름은 ‘DIVE’입니다.”,
+“difficulty”: “easy”
+},
+{
+“id”: “gen018”,
+“question”: “LE SSERAFIM의 팬덤 이름은?”,
+“options”: [“FEARNOT”, “FEARLESS”, “SERAPHIM”, “ANGELS”],
+“answer”: 0,
+“explanation”: “LE SSERAFIM의 팬덤 이름은 ‘FEARNOT’(피어나)입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “gen019”,
+“question”: “ENHYPEN의 팬덤 이름은?”,
+“options”: [“ENHA”, “ENGENE”, “HYPE”, “BORDER”],
+“answer”: 1,
+“explanation”: “ENHYPEN의 팬덤 이름은 ‘ENGENE’입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “gen020”,
+“question”: “Girls’ Generation의 팬덤 이름은?”,
+“options”: [“SONE”, “GOLDEN”, “GG”, “TAEYEON”],
+“answer”: 0,
+“explanation”: “Girls’ Generation의 팬덤 이름은 ‘SONE’(소원)입니다.”,
+“difficulty”: “medium”
+}
+],
+“album”: [
+{
+“id”: “alb001”,
+“question”: “BTS의 첫 정규 앨범은?”,
+“options”: [“DARK&WILD”, “Skool Luv Affair”, “2 COOL 4 SKOOL”, “WINGS”],
+“answer”: 0,
+“explanation”: “‘DARK&WILD’는 2014년에 발매된 BTS의 첫 정규 앨범입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “alb002”,
+“question”: “BLACKPINK의 첫 정규 앨범 이름은?”,
+“options”: [“SQUARE UP”, “KILL THIS LOVE”, “THE ALBUM”, “BORN PINK”],
+“answer”: 2,
+“explanation”: “‘THE ALBUM’은 2020년에 발매된 BLACKPINK의 첫 정규 앨범입니다.”,
+“difficulty”: “medium”
+},
+{
+“id”: “alb003”,
+“question”: “NewJeans의 데뷔 EP 이름은?”,
+“options”: [“New Jeans”, “Attention”, “OMG”, “Get Up”],
+“answer”: 0,
+“explanation”: “‘New Jeans’는 2022년 8월에 발매된 데뷔 EP입니다.”,
+“difficulty”: “hard”
+},
+{
+“id”: “alb004”,
+“question”: “TWICE의 첫 정규 앨범은?”,
+“options”: [“twicetagram”, “Eyes wide open”, “Formula of Love”, “Between 1&2”],
+“answer”: 0,
+“explanation”: “‘twicetagram’은 2017년 10월에 발매된 TWICE의 첫 정규 앨범입니다.”,
+“difficulty”: “hard”
+},
+{
+“id”: “alb005”,
+“question”: “EXO의 ‘EXODUS’는 몇 번째 정규 앨범인가요?”,
+“options”: [“1집”, “2집”, “3집”, “4집”],
+“answer”: 1,
+“explanation”: “‘EXODUS’는 2015년에 발매된 EXO의 2집 정규 앨범입니다.”,
+“difficulty”: “hard”
+},
+{
+“id”: “alb006”,
+“question”: “Red Velvet의 ‘The Red’는 어느 해에 발매되었나요?”,
+“options”: [“2014년”, “2015년”, “2016년”, “2017년”],
+“answer”: 1,
+“explanation”: “‘The Red’는 2015년 9월에 발매된 Red Velvet의 첫 정규 앨범입니다.”,
+“difficulty”: “hard”
+},
+{
+“id”: “alb007”,
+“question”: “SEVENTEEN의 ‘An Ode’는 몇 번째 정규 앨범인가요?”,
+“options”: [“1집”, “2집”, “3집”, “4집”],
+“answer”: 2,
+“explanation”: “‘An Ode’는 2019년에 발매된 SEVENTEEN의 3집 정규 앨범입니다.”,
+“difficulty”: “hard”
+},
+{
+“id”: “alb008”,
+“question”: “Stray Kids의 ‘NOEASY’는 몇 번째 정규 앨범인가요?”,
+“options”: [“1집”, “2집”, “3집”, “4집”],
+“answer”: 1,
+“explanation”: “‘NOEASY’는 2021년에 발매된 Stray Kids의 2집 정규 앨범입니다.”,
+“difficulty”: “hard”
+},
+{
+“id”: “alb009”,
+“question”: “aes
