@@ -982,11 +982,20 @@
       },
       {
         "id": "gen036",
-        "question": "BABYMONSTER의 리더는?",
-        "options": ["Ruka", "Ahyeon", "Asa", "Pharita"],
+        "question": "BABYMONSTER의 팬덤명은?",
+        "options": ["BLINKS", "NEST", "MONSTER", "YG"],
         "answer": 1,
         "category": "general",
-        "explanation": "Ahyeon이 BABYMONSTER의 리더입니다.",
+        "explanation": "BABYMONSTER의 팬덤명은 NEST입니다.",
+        "difficulty": "medium"
+      },
+      {
+        "id": "gen037",
+        "question": "AESPA의 리더 닝닝의 국적은?",
+        "options": ["한국", "중국", "홍콩", "대만"],
+        "answer": 1,
+        "category": "general",
+        "explanation": "닝닝은 중국 출신입니다.",
         "difficulty": "medium"
       }
     ]

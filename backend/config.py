@@ -3,7 +3,7 @@ Flask 설정 파일
 """
 
 import os
-from backend.database import get_db_path
+from database import get_db_path
 
 
 class Config:
