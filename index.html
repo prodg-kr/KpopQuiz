@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>K-pop Quiz Game - 당신은 K-pop 마스터인가요?</title>
+  <meta name="description" content="BTS, BLACKPINK, NewJeans 등 K-pop 아티스트에 대한 지식을 테스트해보세요! 재미있는 K-pop 퀴즈 게임.">
+  <meta name="keywords" content="K-pop, 퀴즈, BTS, BLACKPINK, NewJeans, 케이팝, 게임">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="K-pop Quiz Game">
+  <meta property="og:description" content="당신의 K-pop 지식을 테스트해보세요!">
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎤</text></svg>">
+
+  <style>
+    :root {
+      --bg: #0f1220;
+      --card: #171a2b;
+      --accent: #7c5cff;
+      --accent-2: #ff5c9a;
+      --text: #e9e9f1;
+      --muted: #a9a9c7;
+      --correct: #2ecc71;
+      --wrong: #e74c3c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(1200px 600px at 20% 20%, #1b1f36 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px 10px;
+    }
+
+    .container {
+      width: min(720px, 100%);
+      background: linear-gradient(180deg, rgba(124, 92, 255, 0.08), rgba(255, 92, 154, 0.08)), var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .title {
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+    }
+
+    .title .badge {
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(124, 92, 255, 0.18);
+      color: #d9d6ff;
+      border: 1px solid rgba(124, 92, 255, 0.35);
+    }
+
+    .meta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      white-space: nowrap;
+    }
+
+    .difficulty-selector {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+    }
+
+    .difficulty-btn {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .difficulty-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .difficulty-btn.active {
+      background: linear-gradient(180deg, rgba(124, 92, 255, 0.3), rgba(124, 92, 255, 0.2));
+      border-color: var(--accent);
+      color: #d9d6ff;
+    }
+
+    .question-card {
+      margin-top: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .category-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .category-artist {
+      background: rgba(255, 92, 154, 0.2);
+      color: #ffadd2;
+    }
+
+    .category-song {
+      background: rgba(124, 92, 255, 0.2);
+      color: #c9b3ff;
+    }
+
+    .category-album {
+      background: rgba(46, 204, 113, 0.2);
+      color: #7cf5b8;
+    }
+
+    .category-general {
+      background: rgba(52, 152, 219, 0.2);
+      color: #85d7ff;
+    }
+
+    .question {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .option {
+      width: 100%;
+      text-align: left;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform 0.08s ease, background 0.2s ease, border 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      font-family: inherit;
+    }
+
+    .option:hover:not(.disabled) {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .option:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .option.disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    .option.correct {
+      background: rgba(46, 204, 113, 0.15);
+      border-color: rgba(46, 204, 113, 0.6);
+      animation: correctPulse 0.5s ease;
+    }
+
+    .option.wrong {
+      background: rgba(231, 76, 60, 0.15);
+      border-color: rgba(231, 76, 60, 0.6);
+      animation: shake 0.5s ease;
+    }
+
+    @keyframes correctPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.02);
+      }
+    }
+
+    @keyframes shake {
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform: translateX(-5px);
+      }
+
+      75% {
+        transform: translateX(5px);
+      }
+    }
+
+    .option-label {
+      font-weight: 600;
+      min-width: 24px;
+    }
+
+    .feedback {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.5;
+      display: none;
+    }
+
+    .feedback.show {
+      display: block;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .feedback.correct {
+      background: rgba(46, 204, 113, 0.1);
+      border: 1px solid rgba(46, 204, 113, 0.3);
+      color: #5ce8a8;
+    }
+
+    .feedback.wrong {
+      background: rgba(231, 76, 60, 0.1);
+      border: 1px solid rgba(231, 76, 60, 0.3);
+      color: #ff8c82;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+      gap: 10px;
+    }
+
+    .progress {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
