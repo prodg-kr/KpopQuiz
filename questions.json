@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
   "lastUpdated": "2026-01-19",
-  "totalQuestions": 100,
+  "totalQuestions": 110,
   "categories": {
     "artist": [
       {
@@ -309,6 +309,24 @@
         "category": "artist",
         "explanation": "STAYC는 Black Eyed Pilseung 엔터테인먼트에 소속되어 있습니다.",
         "difficulty": "medium"
+      },
+      {
+        "id": "art035",
+        "question": "AESPA의 코리아 정규 2집 앨범명은?",
+        "options": ["Savage", "Spicy", "Armageddon", "Sympa"],
+        "answer": 3,
+        "category": "artist",
+        "explanation": "AESPA의 2집 앨범은 'Sympa'입니다.",
+        "difficulty": "hard"
+      },
+      {
+        "id": "art036",
+        "question": "NewJeans의 Hanni의 성은?",
+        "options": ["Pham", "Phạm", "Hanni", "Phuong"],
+        "answer": 0,
+        "category": "artist",
+        "explanation": "Hanni의 전이름은 Pham Hanni Thao입니다.",
+        "difficulty": "hard"
       }
     ],
     "song": [
@@ -607,6 +625,42 @@
         "answer": 2,
         "category": "song",
         "explanation": "'Eve, Psyche & The Blakbird'는 2024년 발매되었습니다.",
+        "difficulty": "hard"
+      },
+      {
+        "id": "song034",
+        "question": "BABYMONSTER의 'Sheesh'의 뮤직비디오 감독은?",
+        "options": ["하나몬", "권혁", "한선화", "권오중"],
+        "answer": 1,
+        "category": "song",
+        "explanation": "BABYMONSTER 'Sheesh'는 권혁 감독이 연출했습니다.",
+        "difficulty": "hard"
+      },
+      {
+        "id": "song035",
+        "question": "NewJeans의 '대기' 뮤직비디오 배우는?",
+        "options": ["이제훈", "김재욱", "조성우", "박정민"],
+        "answer": 0,
+        "category": "song",
+        "explanation": "NewJeans 'Attention' 뮤직비디오에는 이제훈이 출연했습니다.",
+        "difficulty": "hard"
+      },
+      {
+        "id": "song036",
+        "question": "AESPA의 'Savage' 뮤직비디오 배우는?",
+        "options": ["김우빈", "박서준", "이동욱", "조성우"],
+        "answer": 1,
+        "category": "song",
+        "explanation": "AESPA 'Savage'에는 배우 박서준이 출연했습니다.",
+        "difficulty": "hard"
+      },
+      {
+        "id": "song037",
+        "question": "STAYC의 'Run2You' 뮤직비디오 배우는?",
+        "options": ["이준호", "남도혁", "임시완", "이성욱"],
+        "answer": 2,
+        "category": "song",
+        "explanation": "STAYC 'RUN2U'에는 배우 임시완이 출연했습니다.",
         "difficulty": "hard"
       }
     ],
@@ -907,6 +961,33 @@
         "category": "general",
         "explanation": "TWICE는 2015년 데뷔로 2020년 이전에 데뷔했습니다.",
         "difficulty": "easy"
+      },
+      {
+        "id": "gen034",
+        "question": "AESPA의 'Spicy' 뮤직비디오 컨셉은?",
+        "options": ["판타지", "학교", "스파이", "미래"],
+        "answer": 2,
+        "category": "general",
+        "explanation": "AESPA 'Spicy'는 스파이 액션 컨셉의 뮤직비디오입니다.",
+        "difficulty": "hard"
+      },
+      {
+        "id": "gen035",
+        "question": "NewJeans 멤버 Hanni, Danielle, Hyein의 국적은?",
+        "options": ["모두 호주", "호주, 호주, 한국", "호주, 미국, 한국", "호주, 호주, 미국"],
+        "answer": 1,
+        "category": "general",
+        "explanation": "Hanni와 Danielle은 호주 출신, Hyein은 한국인입니다.",
+        "difficulty": "hard"
+      },
+      {
+        "id": "gen036",
+        "question": "BABYMONSTER의 리더는?",
+        "options": ["Ruka", "Ahyeon", "Asa", "Pharita"],
+        "answer": 1,
+        "category": "general",
+        "explanation": "Ahyeon이 BABYMONSTER의 리더입니다.",
+        "difficulty": "medium"
       }
     ]
   }
