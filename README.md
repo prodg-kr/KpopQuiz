@@ -1,4 +1,4 @@
-# 🎤 K-pop Quiz Game
+# � KpopQuiz
 
 ## 🚀 빠른 시작
 1. 파일 2개 다운로드: `index.html`, `questions.json`
