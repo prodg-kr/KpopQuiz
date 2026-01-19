@@ -1,9 +1,62 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import random
+import json
+import os
 from database import db, init_db
 from models import Category, Question, Option, UserScore
 from config import config
+
+
+def load_json_to_db(app):
+    """JSON 파일의 데이터를 DB에 동기화"""
+    with app.app_context():
+        try:
+            # JSON 로드
+            json_path = os.path.join(os.path.dirname(__file__), '..', 'questions.json')
+            with open(json_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            
+            # 기존 데이터 삭제
+            Question.query.delete()
+            Option.query.delete()
+            Category.query.delete()
+            db.session.commit()
+            
+            # 카테고리별로 처리
+            for category_name in ['artist', 'song', 'general']:
+                category = Category(
+                    name=category_name,
+                    description=f"{category_name} 카테고리"
+                )
+                db.session.add(category)
+                db.session.flush()
+                
+                # 문제 추가
+                for q in data['categories'][category_name]:
+                    question = Question(
+                        category_id=category.id,
+                        question=q['question'],
+                        explanation=q.get('explanation', ''),
+                        difficulty=q.get('difficulty', 'easy')
+                    )
+                    db.session.add(question)
+                    db.session.flush()
+                    
+                    # 선택지 추가
+                    for idx, option_text in enumerate(q['options']):
+                        option = Option(
+                            question_id=question.id,
+                            option_text=option_text,
+                            is_correct=(idx == q['answer']),
+                            order_num=idx
+                        )
+                        db.session.add(option)
+            
+            db.session.commit()
+            print(f"✅ DB 동기화 완료: {Question.query.count()}개 문제")
+        except Exception as e:
+            print(f"⚠️ DB 동기화 실패: {e}")
 
 
 def create_app():
@@ -15,6 +68,9 @@ def create_app():
     
     # DB 초기화
     init_db(app)
+    
+    # JSON 데이터를 DB에 동기화
+    load_json_to_db(app)
     
     # CORS 활성화 (프론트엔드에서 접근 가능)
     CORS(app)
