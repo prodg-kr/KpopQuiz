@@ -231,28 +231,21 @@
     }
 
     @keyframes correctPulse {
-
-      0%,
-      100% {
+      0%, 100% {
         transform: scale(1);
       }
-
       50% {
         transform: scale(1.02);
       }
     }
 
     @keyframes shake {
-
-      0%,
-      100% {
+      0%, 100% {
         transform: translateX(0);
       }
-
       25% {
         transform: translateX(-5px);
       }
-
       75% {
         transform: translateX(5px);
       }
@@ -282,7 +275,6 @@
         opacity: 0;
         transform: translateY(-10px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
@@ -316,3 +308,310 @@
       overflow: hidden;
       margin-top: 10px;
     }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    .reset-btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      background: rgba(124, 92, 255, 0.15);
+      color: #d9d6ff;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .reset-btn:hover {
+      background: rgba(124, 92, 255, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .end-screen {
+      text-align: center;
+      display: none;
+    }
+
+    .end-screen.show {
+      display: block;
+    }
+
+    .final-score {
+      font-size: 48px;
+      font-weight: 700;
+      margin: 20px 0;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .score-message {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 16px;
+      }
+      .title {
+        font-size: 18px;
+      }
+      .question {
+        font-size: 18px;
+      }
+      .option {
+        font-size: 14px;
+        padding: 10px 12px;
+      }
+      .difficulty-selector {
+        flex-wrap: wrap;
+      }
+      .difficulty-btn {
+        flex: 1 1 calc(50% - 4px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="title">
+        🎤 K-pop Quiz
+        <span class="badge">2026</span>
+      </div>
+      <div class="meta">
+        <span class="pill" id="category">전체</span>
+        <span class="pill" id="difficulty">모든 난이도</span>
+      </div>
+    </div>
+
+    <div class="difficulty-selector">
+      <button class="difficulty-btn active" data-difficulty="all">모두</button>
+      <button class="difficulty-btn" data-difficulty="easy">쉬움</button>
+      <button class="difficulty-btn" data-difficulty="medium">중간</button>
+      <button class="difficulty-btn" data-difficulty="hard">어려움</button>
+    </div>
+
+    <div id="quiz-container">
+      <div class="question-card">
+        <span class="category-badge" id="category-badge">artist</span>
+        <div class="question" id="question">로딩 중...</div>
+        <div class="options" id="options">
+          <div class="option disabled">로딩 중...</div>
+        </div>
+        <div class="feedback" id="feedback"></div>
+        <div class="footer">
+          <span id="question-number">1/100</span>
+          <button class="reset-btn" id="next-btn">다음 →</button>
+        </div>
+        <div class="progress">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="end-screen" id="end-screen">
+      <h2>🎉 퀴즈 완료!</h2>
+      <div class="final-score" id="final-score">0/100</div>
+      <div class="score-message" id="score-message">정답을 맞춰보세요!</div>
+      <button class="reset-btn" id="restart-btn">다시 시작 ↻</button>
+    </div>
+  </div>
+
+  <script>
+    const quizContainer = document.getElementById('quiz-container');
+    const endScreen = document.getElementById('end-screen');
+    const questionEl = document.getElementById('question');
+    const optionsEl = document.getElementById('options');
+    const feedbackEl = document.getElementById('feedback');
+    const nextBtn = document.getElementById('next-btn');
+    const restartBtn = document.getElementById('restart-btn');
+    const questionNumberEl = document.getElementById('question-number');
+    const progressBar = document.getElementById('progress-bar');
+    const categoryEl = document.getElementById('category');
+    const difficultyEl = document.getElementById('difficulty');
+    const categoryBadge = document.getElementById('category-badge');
+    const difficultyBtns = document.querySelectorAll('.difficulty-btn');
+    const finalScoreEl = document.getElementById('final-score');
+    const scoreMessageEl = document.getElementById('score-message');
+
+    let quizData = [];
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let selectedDifficulty = 'all';
+    let answered = false;
+    let filteredQuestions = [];
+
+    // 데이터 로드
+    async function loadQuizData() {
+      try {
+        const response = await fetch('./questions.json');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        
+        // 모든 질문을 하나의 배열로 합치기
+        quizData = [];
+        for (const category in data.categories) {
+          quizData.push(...data.categories[category]);
+        }
+        
+        if (quizData.length === 0) {
+          throw new Error('질문 데이터가 없습니다.');
+        }
+        
+        filterQuestions();
+        displayQuestion();
+      } catch (error) {
+        console.error('퀴즈 데이터를 로드할 수 없습니다:', error);
+        console.log('현재 위치:', window.location.href);
+        questionEl.textContent = '데이터 로드 실패. 브라우저 콘솔을 확인해주세요.';
+      }
+    }
+
+    // 난이도 필터링
+    function filterQuestions() {
+      if (selectedDifficulty === 'all') {
+        filteredQuestions = [...quizData];
+        difficultyEl.textContent = '모든 난이도';
+      } else {
+        filteredQuestions = quizData.filter(q => q.difficulty === selectedDifficulty);
+        const difficultyNames = {
+          'easy': '쉬움',
+          'medium': '중간',
+          'hard': '어려움'
+        };
+        difficultyEl.textContent = difficultyNames[selectedDifficulty];
+      }
+      currentQuestionIndex = 0;
+      score = 0;
+      answered = false;
+    }
+
+    // 난이도 버튼 이벤트
+    difficultyBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        difficultyBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedDifficulty = btn.dataset.difficulty;
+        filterQuestions();
+        displayQuestion();
+      });
+    });
+
+    // 질문 표시
+    function displayQuestion() {
+      if (currentQuestionIndex >= filteredQuestions.length) {
+        showEndScreen();
+        return;
+      }
+
+      answered = false;
+      const question = filteredQuestions[currentQuestionIndex];
+      
+      questionEl.textContent = question.question;
+      categoryBadge.textContent = question.category || 'artist';
+      categoryBadge.className = `category-badge category-${question.category || 'artist'}`;
+      
+      optionsEl.innerHTML = '';
+      question.options.forEach((option, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'option';
+        btn.innerHTML = `<span class="option-label">${String.fromCharCode(65 + index)}.</span>${option}`;
+        btn.addEventListener('click', () => checkAnswer(index, question.answer));
+        optionsEl.appendChild(btn);
+      });
+
+      questionNumberEl.textContent = `${currentQuestionIndex + 1}/${filteredQuestions.length}`;
+      const progressPercent = ((currentQuestionIndex + 1) / filteredQuestions.length) * 100;
+      progressBar.style.width = progressPercent + '%';
+      
+      feedbackEl.className = 'feedback';
+      feedbackEl.textContent = '';
+      nextBtn.textContent = currentQuestionIndex === filteredQuestions.length - 1 ? '완료 ✓' : '다음 →';
+      nextBtn.disabled = false;
+    }
+
+    // 답변 확인
+    function checkAnswer(selectedIndex, correctIndex) {
+      if (answered) return;
+      
+      answered = true;
+      const options = document.querySelectorAll('.option');
+      const isCorrect = selectedIndex === correctIndex;
+      
+      options.forEach((option, index) => {
+        option.classList.add('disabled');
+        if (index === correctIndex) {
+          option.classList.add('correct');
+        }
+        if (index === selectedIndex && !isCorrect) {
+          option.classList.add('wrong');
+        }
+      });
+
+      const question = filteredQuestions[currentQuestionIndex];
+      if (isCorrect) {
+        score++;
+        feedbackEl.className = 'feedback show correct';
+        feedbackEl.textContent = '✓ 정답입니다! ' + question.explanation;
+      } else {
+        feedbackEl.className = 'feedback show wrong';
+        feedbackEl.textContent = '✗ 틀렸습니다. ' + question.explanation;
+      }
+    }
+
+    // 다음 버튼
+    nextBtn.addEventListener('click', () => {
+      currentQuestionIndex++;
+      displayQuestion();
+    });
+
+    // 완료 화면
+    function showEndScreen() {
+      quizContainer.style.display = 'none';
+      endScreen.classList.add('show');
+      finalScoreEl.textContent = `${score}/${filteredQuestions.length}`;
+      
+      const percentage = (score / filteredQuestions.length) * 100;
+      if (percentage === 100) {
+        scoreMessageEl.textContent = '🎊 완벽해요! K-pop 마스터입니다!';
+      } else if (percentage >= 80) {
+        scoreMessageEl.textContent = '👍 훌륭해요! 거의 마스터 수준입니다!';
+      } else if (percentage >= 60) {
+        scoreMessageEl.textContent = '😊 잘했어요! 더 알아보세요!';
+      } else if (percentage >= 40) {
+        scoreMessageEl.textContent = '💪 계속 도전해보세요!';
+      } else {
+        scoreMessageEl.textContent = '🎯 처음부터 시작해봅시다!';
+      }
+    }
+
+    // 재시작 버튼
+    restartBtn.addEventListener('click', () => {
+      quizContainer.style.display = 'block';
+      endScreen.classList.remove('show');
+      currentQuestionIndex = 0;
+      score = 0;
+      answered = false;
+      displayQuestion();
+    });
+
+    // 초기화
+    loadQuizData();
+  </script>
+</body>
+
+</html>
