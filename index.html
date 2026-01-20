@@ -581,15 +581,21 @@
 
         let stageData = [];
 
-        // 정적 호스팅 환경 감지 (GitHub Pages, Live Server 포트 5500~5599, 파일 프로토콜)
+        // 정적 호스팅 환경 감지 (개선됨)
+        const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        const isBackendPort = window.location.port === '5000';
+
         const isStaticHost = window.location.hostname.includes('github.io') ||
-          (window.location.port >= 5500 && window.location.port <= 5599) ||
-          window.location.protocol === 'file:';
+          window.location.protocol === 'file:' ||
+          (isLocalhost && !isBackendPort);
+
+        console.log(`[Mode Check] Static: ${isStaticHost} (Port: ${window.location.port})`);
 
         if (isStaticHost) {
           // === 정적 모드: questions.json 직접 로드 ===
           if (!gameState.allStaticQuestions || gameState.allStaticQuestions.length === 0) {
-            const response = await fetch('questions.json');
+            console.log('Loading local questions.json...');
+            const response = await fetch('./questions.json?t=' + Date.now());
             if (!response.ok) throw new Error(`JSON 로드 실패: ${response.status}`);
             const data = await response.json();
 
