@@ -38,6 +38,9 @@ class Question(db.Model):
     is_active = db.Column(db.Boolean, default=True, index=True)  # 활성 문제 여부
     points = db.Column(db.Integer, default=100)  # 문제당 점수 (100점 고정)
     
+    # 날짜 필터링 추가 (뉴스를 소스로 할 때 유용)
+    issue_date = db.Column(db.String(10), index=True) # 형식: YYYY-MM-DD
+    
     created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     
@@ -53,6 +56,7 @@ class Question(db.Model):
             'explanation': self.explanation,
             'difficulty': self.difficulty,
             'stage': self.stage, # 스테이지 정보 추가
+            'issue_date': self.issue_date, # 날짜 정보
             'is_active': self.is_active,
             'points': self.points,
             'created_at': self.created_at.isoformat(),
