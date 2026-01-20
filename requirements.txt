@@ -1,6 +1,13 @@
+# 웹 프레임워크
 Flask==2.3.3
-Flask-SQLAlchemy==3.0.5
-Flask-CORS==4.0.0
-SQLAlchemy==2.0.21
-python-dotenv==1.0.0
 Werkzeug==2.3.7
+
+# 데이터베이스
+Flask-SQLAlchemy==3.0.5
+SQLAlchemy==2.0.21
+
+# CORS 지원 (프론트엔드 크로스오리진 요청)
+Flask-CORS==4.0.0
+
+# 환경 변수 관리
+python-dotenv==1.0.0

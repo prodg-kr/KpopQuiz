@@ -8,26 +8,41 @@ __pycache__/
 venv/
 env/
 ENV/
+.venv/
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
+*.sublime-project
+*.sublime-workspace
 
-# 데이터베이스
-*.db
-*.sqlite
-*.sqlite3
+# 데이터베이스 (DB는 커밋하되, 임시 파일 제외)
+# *.db
+# *.sqlite
+# *.sqlite3
+temp_*.db
 
 # 임시 파일
 *.tmp
 *.log
+*.pyc
 
 # OS
 .DS_Store
 Thumbs.db
+.env
+.env.local
 
+# Node (빌드 도구)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# 배포 (GitHub Pages는 자동)
+dist/
+build/
 # 환경 변수
 .env
 .env.local

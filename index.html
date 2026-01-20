@@ -453,31 +453,49 @@
     let answered = false;
     let filteredQuestions = [];
 
+    // API 서버 URL 설정 (개발/프로덕션 환경 자동 감지)
+    const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+      ? 'http://localhost:5000'
+      : window.location.origin;
+
     // 데이터 로드
     async function loadQuizData() {
       try {
-        const response = await fetch('./questions.json');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
+        // 로딩 상태 표시
+        questionEl.textContent = '📂 데이터 로드 중...';
         
-        // 모든 질문을 하나의 배열로 합치기
-        quizData = [];
-        for (const category in data.categories) {
-          quizData.push(...data.categories[category]);
+        // API에서 퀴즈 데이터 로드 (100개 문제)
+        const response = await fetch(`${API_URL}/api/quiz?limit=100&random=true`);
+        if (!response.ok) {
+          throw new Error(`API 오류: ${response.status}`);
         }
+        const result = await response.json();
+        
+        if (!result.success) {
+          throw new Error(result.error || 'API 응답 오류');
+        }
+        
+        quizData = result.data || [];
         
         if (quizData.length === 0) {
           throw new Error('질문 데이터가 없습니다.');
         }
         
+        console.log(`✅ ${quizData.length}개 문제 로드 완료`);
         filterQuestions();
         displayQuestion();
       } catch (error) {
-        console.error('퀴즈 데이터를 로드할 수 없습니다:', error);
-        console.log('현재 위치:', window.location.href);
-        questionEl.textContent = '데이터 로드 실패. 브라우저 콘솔을 확인해주세요.';
+        console.error('❌ 퀴즈 데이터 로드 실패:', error);
+        questionEl.innerHTML = `
+          <div style="text-align: center; padding: 30px; color: var(--wrong);">
+            <h2>⚠️ 데이터 로드 실패</h2>
+            <p>${error.message}</p>
+            <p style="font-size: 14px; margin-top: 15px;">
+              로컬 서버 실행: python run_server.py<br>
+              또는 브라우저 개발자 도구(F12)를 열어 콘솔을 확인해주세요.
+            </p>
+          </div>
+        `;
       }
     }
 
@@ -526,11 +544,23 @@
       categoryBadge.className = `category-badge category-${question.category || 'artist'}`;
       
       optionsEl.innerHTML = '';
-      question.options.forEach((option, index) => {
+      
+      // API에서 온 options는 {id, option_text, order_num, is_correct} 형식
+      // 정답 인덱스를 찾기
+      let correctOptionIndex = -1;
+      const sortedOptions = question.options.sort((a, b) => a.order_num - b.order_num);
+      sortedOptions.forEach((option, index) => {
+        if (option.is_correct) {
+          correctOptionIndex = index;
+        }
+      });
+      
+      sortedOptions.forEach((option, index) => {
         const btn = document.createElement('button');
         btn.className = 'option';
-        btn.innerHTML = `<span class="option-label">${String.fromCharCode(65 + index)}.</span>${option}`;
-        btn.addEventListener('click', () => checkAnswer(index, question.answer));
+        btn.innerHTML = `<span class="option-label">${String.fromCharCode(65 + index)}.</span>${option.option_text}`;
+        btn.dataset.optionId = option.id;
+        btn.addEventListener('click', () => checkAnswer(index, correctOptionIndex, option.id));
         optionsEl.appendChild(btn);
       });
 
@@ -544,14 +574,16 @@
       nextBtn.disabled = false;
     }
 
-    // 답변 확인
-    function checkAnswer(selectedIndex, correctIndex) {
+    // 답변 확인 (비동기로 API와 검증)
+    async function checkAnswer(selectedIndex, correctIndex, optionId) {
       if (answered) return;
       
       answered = true;
-      const options = document.querySelectorAll('.option');
+      const question = filteredQuestions[currentQuestionIndex];
       const isCorrect = selectedIndex === correctIndex;
       
+      // UI 업데이트
+      const options = document.querySelectorAll('.option');
       options.forEach((option, index) => {
         option.classList.add('disabled');
         if (index === correctIndex) {
@@ -562,14 +594,38 @@
         }
       });
 
-      const question = filteredQuestions[currentQuestionIndex];
-      if (isCorrect) {
-        score++;
-        feedbackEl.className = 'feedback show correct';
-        feedbackEl.textContent = '✓ 정답입니다! ' + question.explanation;
-      } else {
-        feedbackEl.className = 'feedback show wrong';
-        feedbackEl.textContent = '✗ 틀렸습니다. ' + question.explanation;
+      try {
+        // API에서 답변 검증 (선택사항 - 서버에서 재확인)
+        const response = await fetch(`${API_URL}/api/quiz/${question.id}/check`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ selected_option_id: optionId })
+        });
+        
+        if (response.ok) {
+          const result = await response.json();
+          // 서버 결과로 최종 판정
+          if (isCorrect || result.is_correct) {
+            score++;
+            feedbackEl.className = 'feedback show correct';
+            feedbackEl.textContent = '✓ 정답입니다! ' + (question.explanation || '');
+          } else {
+            feedbackEl.className = 'feedback show wrong';
+            feedbackEl.textContent = '✗ 틀렸습니다. ' + (question.explanation || '');
+          }
+        }
+      } catch (error) {
+        console.warn('답변 검증 API 호출 실패, 로컬 검증 사용:', error);
+        if (isCorrect) {
+          score++;
+          feedbackEl.className = 'feedback show correct';
+          feedbackEl.textContent = '✓ 정답입니다! ' + (question.explanation || '');
+        } else {
+          feedbackEl.className = 'feedback show wrong';
+          feedbackEl.textContent = '✗ 틀렸습니다. ' + (question.explanation || '');
+        }
       }
     }
 

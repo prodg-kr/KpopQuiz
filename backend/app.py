@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template_string, send_from_directory
 from flask_cors import CORS
 import random
 import json
@@ -73,12 +73,30 @@ def create_app():
     load_json_to_db(app)
     
     # CORS 활성화 (프론트엔드에서 접근 가능)
-    CORS(app)
+    # 모든 오리진에서의 요청 허용 (개발 환경)
+    CORS(app, 
+         origins="*",
+         methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+         allow_headers=["Content-Type"])
     
     return app
 
 
 app = create_app()
+
+
+# ==================== 정적 파일 제공 ====================
+
+@app.route('/')
+def index():
+    """홈페이지 - index.html 제공"""
+    try:
+        # 프로젝트 루트의 index.html 읽기
+        parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        with open(os.path.join(parent_dir, 'index.html'), 'r', encoding='utf-8') as f:
+            return f.read()
+    except Exception as e:
+        return f"<h1>Error</h1><p>{str(e)}</p>", 500
 
 
 # ==================== API 라우트 ====================
@@ -132,16 +150,17 @@ def get_quiz():
         if is_random:
             random.shuffle(questions)
         
-        # 응답 구성 (선택지는 포함하되, is_correct 숨김)
+        # 응답 구성 (선택지는 포함하되, is_correct 포함 - 프론트엔드에서 필요)
         quiz_data = []
         for q in questions:
             q_dict = q.to_dict()
-            # 선택지에서 정답 정보 제거
+            # 선택지 정보 포함 (order_num 기준으로 정렬)
             q_dict['options'] = [
                 {
                     'id': opt['id'],
                     'option_text': opt['option_text'],
-                    'order_num': opt['order_num']
+                    'order_num': opt['order_num'],
+                    'is_correct': opt['is_correct']
                 }
                 for opt in q_dict['options']
             ]
