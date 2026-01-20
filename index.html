@@ -27,6 +27,9 @@
       --muted: #a9a9c7;
       --correct: #2ecc71;
       --wrong: #e74c3c;
+      --easy: #4caf50;
+      --medium: #ff9800;
+      --hard: #f44336;
     }
 
     * {
@@ -98,41 +101,23 @@
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.12);
       white-space: nowrap;
+      font-weight: 600;
     }
 
-    .difficulty-selector {
+    .stage-info {
       display: flex;
       gap: 8px;
-      margin-bottom: 16px;
-      padding: 12px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 10px;
-    }
-
-    .difficulty-btn {
-      flex: 1;
-      padding: 8px 12px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--text);
-      cursor: pointer;
-      font-family: inherit;
+      margin-bottom: 12px;
       font-size: 13px;
+      color: var(--muted);
+    }
+
+    .stage-badge {
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(124, 92, 255, 0.15);
+      border: 1px solid rgba(124, 92, 255, 0.3);
       font-weight: 600;
-      transition: all 0.2s ease;
-    }
-
-    .difficulty-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
-      transform: translateY(-1px);
-    }
-
-    .difficulty-btn.active {
-      background: linear-gradient(180deg, rgba(124, 92, 255, 0.3), rgba(124, 92, 255, 0.2));
-      border-color: var(--accent);
-      color: #d9d6ff;
     }
 
     .question-card {
@@ -143,35 +128,35 @@
       padding: 18px;
     }
 
-    .category-badge {
-      display: inline-block;
-      padding: 4px 10px;
-      margin-bottom: 10px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 600;
+    .difficulty-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
-    .category-artist {
-      background: rgba(255, 92, 154, 0.2);
-      color: #ffadd2;
+    .difficulty-easy {
+      background: rgba(76, 175, 80, 0.2);
+      color: #81c784;
+      border: 1px solid rgba(76, 175, 80, 0.4);
     }
 
-    .category-song {
-      background: rgba(124, 92, 255, 0.2);
-      color: #c9b3ff;
+    .difficulty-medium {
+      background: rgba(255, 152, 0, 0.2);
+      color: #ffb74d;
+      border: 1px solid rgba(255, 152, 0, 0.4);
     }
 
-    .category-album {
-      background: rgba(46, 204, 113, 0.2);
-      color: #7cf5b8;
-    }
-
-    .category-general {
-      background: rgba(52, 152, 219, 0.2);
-      color: #85d7ff;
+    .difficulty-hard {
+      background: rgba(244, 67, 54, 0.2);
+      color: #e57373;
+      border: 1px solid rgba(244, 67, 54, 0.4);
     }
 
     .question {
@@ -231,21 +216,28 @@
     }
 
     @keyframes correctPulse {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: scale(1);
       }
+
       50% {
         transform: scale(1.02);
       }
     }
 
     @keyframes shake {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateX(0);
       }
+
       25% {
         transform: translateX(-5px);
       }
+
       75% {
         transform: translateX(5px);
       }
@@ -275,6 +267,7 @@
         opacity: 0;
         transform: translateY(-10px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -317,14 +310,14 @@
     }
 
     .reset-btn {
-      padding: 8px 16px;
+      padding: 10px 20px;
       border-radius: 8px;
       border: 1px solid var(--accent);
       background: rgba(124, 92, 255, 0.15);
       color: #d9d6ff;
       cursor: pointer;
       font-family: inherit;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       transition: all 0.2s ease;
     }
@@ -334,11 +327,13 @@
       transform: translateY(-1px);
     }
 
+    .stage-result,
     .end-screen {
       text-align: center;
       display: none;
     }
 
+    .stage-result.show,
     .end-screen.show {
       display: block;
     }
@@ -363,21 +358,18 @@
       .container {
         padding: 16px;
       }
+
       .title {
         font-size: 18px;
       }
+
       .question {
         font-size: 18px;
       }
+
       .option {
         font-size: 14px;
         padding: 10px 12px;
-      }
-      .difficulty-selector {
-        flex-wrap: wrap;
-      }
-      .difficulty-btn {
-        flex: 1 1 calc(50% - 4px);
       }
     }
   </style>
@@ -391,29 +383,28 @@
         <span class="badge">2026</span>
       </div>
       <div class="meta">
-        <span class="pill" id="category">전체</span>
-        <span class="pill" id="difficulty">모든 난이도</span>
+        <span class="pill" id="score-display">점수: 0 / 10,000</span>
       </div>
     </div>
 
-    <div class="difficulty-selector">
-      <button class="difficulty-btn active" data-difficulty="all">모두</button>
-      <button class="difficulty-btn" data-difficulty="easy">쉬움</button>
-      <button class="difficulty-btn" data-difficulty="medium">중간</button>
-      <button class="difficulty-btn" data-difficulty="hard">어려움</button>
-    </div>
-
     <div id="quiz-container">
+      <div class="stage-info">
+        <span class="stage-badge" id="stage-indicator">Stage 1</span>
+        <span id="question-counter">Question 1 of 10</span>
+      </div>
+
       <div class="question-card">
-        <span class="category-badge" id="category-badge">artist</span>
+        <div class="difficulty-badge difficulty-easy" id="difficulty-badge">
+          <span>●</span>
+          <span id="difficulty-text">EASY</span>
+        </div>
         <div class="question" id="question">로딩 중...</div>
         <div class="options" id="options">
           <div class="option disabled">로딩 중...</div>
         </div>
         <div class="feedback" id="feedback"></div>
         <div class="footer">
-          <span id="question-number">1/100</span>
-          <button class="reset-btn" id="next-btn">다음 →</button>
+          <span id="points-display">40pt</span>
         </div>
         <div class="progress">
           <div class="progress-bar" id="progress-bar"></div>
@@ -421,251 +412,243 @@
       </div>
     </div>
 
+    <div class="stage-result" id="stage-result">
+      <h2>🎯 Stage 완료!</h2>
+      <div class="final-score" id="stage-score">0 / 1,000</div>
+      <div class="score-message" id="stage-message">다음 Stage로 계속하세요!</div>
+      <button class="reset-btn" id="next-stage-btn">Next Stage →</button>
+    </div>
+
     <div class="end-screen" id="end-screen">
-      <h2>🎉 퀴즈 완료!</h2>
-      <div class="final-score" id="final-score">0/100</div>
+      <h2>🎉 게임 완료!</h2>
+      <div class="final-score" id="final-score">0 / 10,000</div>
       <div class="score-message" id="score-message">정답을 맞춰보세요!</div>
       <button class="reset-btn" id="restart-btn">다시 시작 ↻</button>
     </div>
   </div>
 
   <script>
+    // ==================== DOM 요소 ====================
     const quizContainer = document.getElementById('quiz-container');
+    const stageResult = document.getElementById('stage-result');
     const endScreen = document.getElementById('end-screen');
     const questionEl = document.getElementById('question');
     const optionsEl = document.getElementById('options');
     const feedbackEl = document.getElementById('feedback');
-    const nextBtn = document.getElementById('next-btn');
     const restartBtn = document.getElementById('restart-btn');
-    const questionNumberEl = document.getElementById('question-number');
+    const nextStageBtn = document.getElementById('next-stage-btn');
+    const scoreDisplayEl = document.getElementById('score-display');
+    const pointsDisplayEl = document.getElementById('points-display');
+    const stageIndicator = document.getElementById('stage-indicator');
+    const questionCounter = document.getElementById('question-counter');
+    const difficultyBadge = document.getElementById('difficulty-badge');
+    const difficultyText = document.getElementById('difficulty-text');
     const progressBar = document.getElementById('progress-bar');
-    const categoryEl = document.getElementById('category');
-    const difficultyEl = document.getElementById('difficulty');
-    const categoryBadge = document.getElementById('category-badge');
-    const difficultyBtns = document.querySelectorAll('.difficulty-btn');
+    const stageScoreEl = document.getElementById('stage-score');
+    const stageMessageEl = document.getElementById('stage-message');
     const finalScoreEl = document.getElementById('final-score');
     const scoreMessageEl = document.getElementById('score-message');
 
-    let quizData = [];
-    let currentQuestionIndex = 0;
-    let score = 0;
-    let selectedDifficulty = 'all';
+    // ==================== 게임 상태 ====================
+    const QUESTIONS_PER_STAGE = 10;
+    let allQuestions = [];
+    let currentStage = 1;
+    let questionIndexInStage = 0;
+    let totalScore = 0;
+    let stageScore = 0;
     let answered = false;
-    let filteredQuestions = [];
 
-    // API 서버 URL 설정 (개발/프로덕션 환경 자동 감지)
+    // API 서버 URL
     const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
       ? 'http://localhost:5000'
       : window.location.origin;
 
-    // 데이터 로드
+    // ==================== 데이터 로드 ====================
     async function loadQuizData() {
       try {
-        // 로딩 상태 표시
-        questionEl.textContent = '📂 데이터 로드 중...';
-        
-        // API에서 퀴즈 데이터 로드 (100개 문제)
-        const response = await fetch(`${API_URL}/api/quiz?limit=100&random=true`);
-        if (!response.ok) {
-          throw new Error(`API 오류: ${response.status}`);
-        }
+        questionEl.textContent = '데이터 로드 중...';
+
+        const response = await fetch(`${API_URL}/api/quiz?limit=200`);
+        if (!response.ok) throw new Error(`API 오류: ${response.status}`);
+
         const result = await response.json();
-        
-        if (!result.success) {
-          throw new Error(result.error || 'API 응답 오류');
-        }
-        
-        quizData = result.data || [];
-        
-        if (quizData.length === 0) {
-          throw new Error('질문 데이터가 없습니다.');
-        }
-        
-        console.log(`✅ ${quizData.length}개 문제 로드 완료`);
-        filterQuestions();
-        displayQuestion();
+        if (!result.success) throw new Error(result.error || 'API 응답 오류');
+
+        allQuestions = result.data || [];
+        if (allQuestions.length === 0) throw new Error('활성 문제가 없습니다.');
+
+        console.log(`${allQuestions.length}개 문제 로드 완료`);
+        startStage();
       } catch (error) {
-        console.error('❌ 퀴즈 데이터 로드 실패:', error);
+        console.error('퀴즈 데이터 로드 실패:', error);
         questionEl.innerHTML = `
           <div style="text-align: center; padding: 30px; color: var(--wrong);">
-            <h2>⚠️ 데이터 로드 실패</h2>
+            <h2>데이터 로드 실패</h2>
             <p>${error.message}</p>
-            <p style="font-size: 14px; margin-top: 15px;">
-              로컬 서버 실행: python run_server.py<br>
-              또는 브라우저 개발자 도구(F12)를 열어 콘솔을 확인해주세요.
-            </p>
           </div>
         `;
       }
     }
 
-    // 난이도 필터링
-    function filterQuestions() {
-      if (selectedDifficulty === 'all') {
-        filteredQuestions = [...quizData];
-        difficultyEl.textContent = '모든 난이도';
-      } else {
-        filteredQuestions = quizData.filter(q => q.difficulty === selectedDifficulty);
-        const difficultyNames = {
-          'easy': '쉬움',
-          'medium': '중간',
-          'hard': '어려움'
-        };
-        difficultyEl.textContent = difficultyNames[selectedDifficulty];
-      }
-      currentQuestionIndex = 0;
-      score = 0;
-      answered = false;
+    // ==================== Stage 시작 ====================
+    function startStage() {
+      questionIndexInStage = 0;
+      stageScore = 0;
+      quizContainer.style.display = 'block';
+      stageResult.classList.remove('show');
+      endScreen.classList.remove('show');
+
+      stageIndicator.textContent = `Stage ${currentStage}`;
+      displayQuestion();
     }
 
-    // 난이도 버튼 이벤트
-    difficultyBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        difficultyBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        selectedDifficulty = btn.dataset.difficulty;
-        filterQuestions();
-        displayQuestion();
-      });
-    });
-
-    // 질문 표시
+    // ==================== 문제 표시 ====================
     function displayQuestion() {
-      if (currentQuestionIndex >= filteredQuestions.length) {
+      const globalIndex = (currentStage - 1) * QUESTIONS_PER_STAGE + questionIndexInStage;
+
+      if (globalIndex >= allQuestions.length) {
         showEndScreen();
         return;
       }
 
+      if (questionIndexInStage >= QUESTIONS_PER_STAGE) {
+        showStageResult();
+        return;
+      }
+
       answered = false;
-      const question = filteredQuestions[currentQuestionIndex];
-      
+      const question = allQuestions[globalIndex];
+
+      // 문제 텍스트
       questionEl.textContent = question.question;
-      categoryBadge.textContent = question.category || 'artist';
-      categoryBadge.className = `category-badge category-${question.category || 'artist'}`;
-      
+
+      // 난이도 표시
+      const difficulty = question.difficulty || 'easy';
+      difficultyBadge.className = `difficulty-badge difficulty-${difficulty}`;
+      difficultyText.textContent = difficulty.toUpperCase();
+
+      // 점수 표시
+      const points = question.points || 40;
+      pointsDisplayEl.textContent = `${points}pt`;
+      pointsDisplayEl.style.color = difficulty === 'hard' ? '#e57373' : difficulty === 'medium' ? '#ffb74d' : '#81c784';
+
+      // 선택지 생성
       optionsEl.innerHTML = '';
-      
-      // API에서 온 options는 {id, option_text, order_num, is_correct} 형식
-      // 정답 인덱스를 찾기
       let correctOptionIndex = -1;
       const sortedOptions = question.options.sort((a, b) => a.order_num - b.order_num);
+
       sortedOptions.forEach((option, index) => {
-        if (option.is_correct) {
-          correctOptionIndex = index;
-        }
+        if (option.is_correct) correctOptionIndex = index;
       });
-      
+
       sortedOptions.forEach((option, index) => {
         const btn = document.createElement('button');
         btn.className = 'option';
         btn.innerHTML = `<span class="option-label">${String.fromCharCode(65 + index)}.</span>${option.option_text}`;
-        btn.dataset.optionId = option.id;
-        btn.addEventListener('click', () => checkAnswer(index, correctOptionIndex, option.id));
+        btn.addEventListener('click', () => checkAnswer(index, correctOptionIndex, question.points || 40, question.explanation));
         optionsEl.appendChild(btn);
       });
 
-      questionNumberEl.textContent = `${currentQuestionIndex + 1}/${filteredQuestions.length}`;
-      const progressPercent = ((currentQuestionIndex + 1) / filteredQuestions.length) * 100;
+      // 진행 상황
+      questionCounter.textContent = `Question ${questionIndexInStage + 1} of ${QUESTIONS_PER_STAGE}`;
+      const progressPercent = ((questionIndexInStage + 1) / QUESTIONS_PER_STAGE) * 100;
       progressBar.style.width = progressPercent + '%';
-      
+
+      // 점수 표시
+      scoreDisplayEl.textContent = `점수: ${totalScore.toLocaleString()} / 10,000`;
+
       feedbackEl.className = 'feedback';
       feedbackEl.textContent = '';
-      nextBtn.textContent = currentQuestionIndex === filteredQuestions.length - 1 ? '완료 ✓' : '다음 →';
-      nextBtn.disabled = false;
     }
 
-    // 답변 확인 (비동기로 API와 검증)
-    async function checkAnswer(selectedIndex, correctIndex, optionId) {
+    // ==================== 답변 확인 ====================
+    function checkAnswer(selectedIndex, correctIndex, points, explanation) {
       if (answered) return;
-      
       answered = true;
-      const question = filteredQuestions[currentQuestionIndex];
+
       const isCorrect = selectedIndex === correctIndex;
-      
+
       // UI 업데이트
       const options = document.querySelectorAll('.option');
       options.forEach((option, index) => {
         option.classList.add('disabled');
-        if (index === correctIndex) {
-          option.classList.add('correct');
-        }
-        if (index === selectedIndex && !isCorrect) {
-          option.classList.add('wrong');
-        }
+        if (index === correctIndex) option.classList.add('correct');
+        if (index === selectedIndex && !isCorrect) option.classList.add('wrong');
       });
 
-      try {
-        // API에서 답변 검증 (선택사항 - 서버에서 재확인)
-        const response = await fetch(`${API_URL}/api/quiz/${question.id}/check`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ selected_option_id: optionId })
-        });
-        
-        if (response.ok) {
-          const result = await response.json();
-          // 서버 결과로 최종 판정
-          if (isCorrect || result.is_correct) {
-            score++;
-            feedbackEl.className = 'feedback show correct';
-            feedbackEl.textContent = '✓ 정답입니다! ' + (question.explanation || '');
-          } else {
-            feedbackEl.className = 'feedback show wrong';
-            feedbackEl.textContent = '✗ 틀렸습니다. ' + (question.explanation || '');
-          }
-        }
-      } catch (error) {
-        console.warn('답변 검증 API 호출 실패, 로컬 검증 사용:', error);
-        if (isCorrect) {
-          score++;
-          feedbackEl.className = 'feedback show correct';
-          feedbackEl.textContent = '✓ 정답입니다! ' + (question.explanation || '');
-        } else {
-          feedbackEl.className = 'feedback show wrong';
-          feedbackEl.textContent = '✗ 틀렸습니다. ' + (question.explanation || '');
-        }
+      // 점수 적용
+      if (isCorrect) {
+        totalScore += points;
+        stageScore += points;
+        feedbackEl.className = 'feedback show correct';
+        feedbackEl.textContent = `정답! +${points}pt ` + (explanation || '');
+      } else {
+        feedbackEl.className = 'feedback show wrong';
+        feedbackEl.textContent = '틀렸습니다. ' + (explanation || '');
+      }
+
+      scoreDisplayEl.textContent = `점수: ${totalScore.toLocaleString()} / 10,000`;
+
+      // 자동 전환
+      const delay = isCorrect ? 1000 : 1200;
+      setTimeout(() => {
+        questionIndexInStage++;
+        displayQuestion();
+      }, delay);
+    }
+
+    // ==================== Stage 결과 ====================
+    function showStageResult() {
+      quizContainer.style.display = 'none';
+      stageResult.classList.add('show');
+
+      // Stage별 최대 점수 계산 (대략)
+      const maxStagePoints = Math.round(10000 / Math.ceil(allQuestions.length / QUESTIONS_PER_STAGE));
+      stageScoreEl.textContent = `${stageScore.toLocaleString()} / ~${maxStagePoints.toLocaleString()}`;
+
+      const percentage = (stageScore / maxStagePoints) * 100;
+      if (percentage >= 80) {
+        stageMessageEl.textContent = '훌륭해요! 다음 Stage로!';
+      } else if (percentage >= 60) {
+        stageMessageEl.textContent = '잘했어요! 계속 도전!';
+      } else {
+        stageMessageEl.textContent = '다음 Stage에서 더 잘할 수 있어요!';
       }
     }
 
-    // 다음 버튼
-    nextBtn.addEventListener('click', () => {
-      currentQuestionIndex++;
-      displayQuestion();
-    });
-
-    // 완료 화면
+    // ==================== 최종 결과 ====================
     function showEndScreen() {
       quizContainer.style.display = 'none';
+      stageResult.classList.remove('show');
       endScreen.classList.add('show');
-      finalScoreEl.textContent = `${score}/${filteredQuestions.length}`;
-      
-      const percentage = (score / filteredQuestions.length) * 100;
-      if (percentage === 100) {
-        scoreMessageEl.textContent = '🎊 완벽해요! K-pop 마스터입니다!';
-      } else if (percentage >= 80) {
-        scoreMessageEl.textContent = '👍 훌륭해요! 거의 마스터 수준입니다!';
-      } else if (percentage >= 60) {
-        scoreMessageEl.textContent = '😊 잘했어요! 더 알아보세요!';
-      } else if (percentage >= 40) {
-        scoreMessageEl.textContent = '💪 계속 도전해보세요!';
+
+      finalScoreEl.textContent = `${totalScore.toLocaleString()} / 10,000`;
+
+      const percentage = (totalScore / 10000) * 100;
+      if (percentage >= 90) {
+        scoreMessageEl.textContent = '완벽해요! K-pop 마스터입니다!';
+      } else if (percentage >= 70) {
+        scoreMessageEl.textContent = '훌륭해요! 거의 마스터 수준!';
+      } else if (percentage >= 50) {
+        scoreMessageEl.textContent = '잘했어요! 더 알아보세요!';
       } else {
-        scoreMessageEl.textContent = '🎯 처음부터 시작해봅시다!';
+        scoreMessageEl.textContent = '계속 도전해보세요!';
       }
     }
 
-    // 재시작 버튼
-    restartBtn.addEventListener('click', () => {
-      quizContainer.style.display = 'block';
-      endScreen.classList.remove('show');
-      currentQuestionIndex = 0;
-      score = 0;
-      answered = false;
-      displayQuestion();
+    // ==================== 이벤트 핸들러 ====================
+    nextStageBtn.addEventListener('click', () => {
+      currentStage++;
+      startStage();
     });
 
-    // 초기화
+    restartBtn.addEventListener('click', () => {
+      currentStage = 1;
+      totalScore = 0;
+      loadQuizData();
+    });
+
+    // ==================== 초기화 ====================
     loadQuizData();
   </script>
 </body>

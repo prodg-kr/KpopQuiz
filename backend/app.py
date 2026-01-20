@@ -34,11 +34,18 @@ def load_json_to_db(app):
                 
                 # 문제 추가
                 for q in data['categories'][category_name]:
+                    difficulty = q.get('difficulty', 'easy')
+                    # 난이도별 차등 점수 자동 설정
+                    points_map = {'easy': 1, 'medium': 2, 'hard': 3}
+                    points = points_map.get(difficulty, 1)
+                    
                     question = Question(
                         category_id=category.id,
                         question=q['question'],
                         explanation=q.get('explanation', ''),
-                        difficulty=q.get('difficulty', 'easy')
+                        difficulty=difficulty,
+                        is_active=True,  # 기본값: 활성
+                        points=points  # 차등 점수
                     )
                     db.session.add(question)
                     db.session.flush()
@@ -54,9 +61,9 @@ def load_json_to_db(app):
                         db.session.add(option)
             
             db.session.commit()
-            print(f"✅ DB 동기화 완료: {Question.query.count()}개 문제")
+            print(f"DB sync complete: {Question.query.count()} questions loaded")
         except Exception as e:
-            print(f"⚠️ DB 동기화 실패: {e}")
+            print(f"DB sync failed: {e}")
 
 
 def create_app():
@@ -116,41 +123,29 @@ def get_categories():
 
 @app.route('/api/quiz', methods=['GET'])
 def get_quiz():
-    """퀴즈 문제 조회 (필터링 가능)
+    """퀴즈 문제 조회 (활성 문제만, SQL 레벨 랜덤화)
     
     쿼리 파라미터:
-    - category: 카테고리 이름 (선택)
-    - difficulty: 난이도 (선택, easy/medium/hard)
-    - limit: 가져올 문제 수 (기본값: 10)
-    - random: 랜덤 순서 여부 (기본값: true)
+    - limit: 가져올 문제 수 (기본값: 100)
+    
+    변경사항:
+    - 난이도 필터 제거 (모든 난이도 출제)
+    - is_active=True 문제만 조회 (일일 업데이트 지원)
+    - SQL RANDOM()으로 서버 레벨 랜덤화
     """
     try:
-        # 쿼리 파라미터 가져오기
-        category = request.args.get('category')
-        difficulty = request.args.get('difficulty')
-        limit = int(request.args.get('limit', 10))
-        is_random = request.args.get('random', 'true').lower() == 'true'
+        # 쿼리 파라미터
+        limit = int(request.args.get('limit', 100))
         
-        # 쿼리 빌드
-        query = Question.query
+        # 활성 문제만 조회 + SQL 레벨 랜덤화
+        # SQLite의 경우 func.random() 사용
+        from sqlalchemy import func
+        questions = Question.query.filter_by(is_active=True)\
+            .order_by(func.random())\
+            .limit(limit)\
+            .all()
         
-        if category:
-            cat = Category.query.filter_by(name=category).first()
-            if not cat:
-                return jsonify({'success': False, 'error': f'카테고리를 찾을 수 없습니다: {category}'}), 404
-            query = query.filter_by(category_id=cat.id)
-        
-        if difficulty:
-            query = query.filter_by(difficulty=difficulty)
-        
-        # 문제 조회
-        questions = query.limit(limit).all()
-        
-        # 랜덤 섞기
-        if is_random:
-            random.shuffle(questions)
-        
-        # 응답 구성 (선택지는 포함하되, is_correct 포함 - 프론트엔드에서 필요)
+        # 응답 구성 (points 필드 포함)
         quiz_data = []
         for q in questions:
             q_dict = q.to_dict()
