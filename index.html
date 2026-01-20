@@ -468,13 +468,58 @@
       try {
         questionEl.textContent = '데이터 로드 중...';
 
-        const response = await fetch(`${API_URL}/api/quiz?limit=200`);
-        if (!response.ok) throw new Error(`API 오류: ${response.status}`);
+        let loadedQuestions = [];
 
-        const result = await response.json();
-        if (!result.success) throw new Error(result.error || 'API 응답 오류');
+        // GitHub Pages 또는 정적 호스팅: questions.json 직접 로드
+        if (window.location.hostname.includes('github.io') || window.location.protocol === 'file:') {
+          const response = await fetch('./questions.json');
+          if (!response.ok) throw new Error(`JSON 로드 실패: ${response.status}`);
 
-        allQuestions = result.data || [];
+          const data = await response.json();
+
+          // JSON 형식을 API 형식으로 변환
+          const categories = ['artist', 'song', 'general'];
+          categories.forEach(category => {
+            if (data.categories && data.categories[category]) {
+              data.categories[category].forEach(q => {
+                // 난이도별 점수 할당
+                const pointsMap = { 'easy': 40, 'medium': 81, 'hard': 122 };
+                const points = pointsMap[q.difficulty] || 40;
+
+                loadedQuestions.push({
+                  id: q.id,
+                  question: q.question,
+                  difficulty: q.difficulty || 'easy',
+                  points: points,
+                  is_active: true,
+                  category: category,
+                  explanation: q.explanation || '',
+                  options: q.options.map((text, idx) => ({
+                    id: idx,
+                    option_text: text,
+                    order_num: idx,
+                    is_correct: idx === q.answer
+                  }))
+                });
+              });
+            }
+          });
+
+          // 랜덤 셔플 (정적 모드에서는 클라이언트 셔플 필요)
+          loadedQuestions.sort(() => Math.random() - 0.5);
+
+        } else {
+          // 로컬 개발: API 사용
+          const response = await fetch(`${API_URL}/api/quiz?limit=200`);
+          if (!response.ok) throw new Error(`API 오류: ${response.status}`);
+
+          const result = await response.json();
+          if (!result.success) throw new Error(result.error || 'API 응답 오류');
+
+          loadedQuestions = result.data || [];
+        }
+
+        allQuestions = loadedQuestions;
         if (allQuestions.length === 0) throw new Error('활성 문제가 없습니다.');
 
         console.log(`${allQuestions.length}개 문제 로드 완료`);
@@ -485,6 +530,11 @@
           <div style="text-align: center; padding: 30px; color: var(--wrong);">
             <h2>데이터 로드 실패</h2>
             <p>${error.message}</p>
+            <p style="font-size: 14px; margin-top: 15px;">
+              ${window.location.hostname.includes('github.io') ?
+            '잠시 후 다시 시도해주세요.' :
+            '로컬 서버 실행: python run_server.py'}
+            </p>
           </div>
         `;
       }
