@@ -470,8 +470,12 @@
 
         let loadedQuestions = [];
 
-        // GitHub Pages 또는 정적 호스팅: questions.json 직접 로드
-        if (window.location.hostname.includes('github.io') || window.location.protocol === 'file:') {
+        // GitHub Pages, Live Server, 또는 정적 호스팅: questions.json 직접 로드
+        const isLiveServer = window.location.port >= 5500 && window.location.port < 5600;
+        const isGitHubPages = window.location.hostname.includes('github.io');
+        const isFileProtocol = window.location.protocol === 'file:';
+
+        if (isGitHubPages || isFileProtocol || isLiveServer) {
           const response = await fetch('./questions.json');
           if (!response.ok) throw new Error(`JSON 로드 실패: ${response.status}`);
 
