@@ -327,16 +327,82 @@
       transform: translateY(-1px);
     }
 
-    .stage-result,
+    .stage-clear,
     .end-screen {
       text-align: center;
       display: none;
     }
 
-    .stage-result.show,
+    .stage-clear.show,
     .end-screen.show {
       display: block;
     }
+
+    /* 새로운 Stage Clear 화면 전용 스타일 */
+    .stage-clear {
+      padding: 30px;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .stage-clear-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .stage-clear-subtitle {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .stage-clear-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .stat-item {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .stat-item-label {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .stat-item-value {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .stat-item-value .small {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* --- */
 
     .final-score {
       font-size: 48px;
@@ -412,11 +478,23 @@
       </div>
     </div>
 
-    <div class="stage-result" id="stage-result">
-      <h2>🎯 Stage 완료!</h2>
-      <div class="final-score" id="stage-score">0 / 1,000</div>
-      <div class="score-message" id="stage-message">다음 Stage로 계속하세요!</div>
-      <button class="reset-btn" id="next-stage-btn">Next Stage →</button>
+    <div class="stage-clear" id="stage-clear-screen">
+      <h2 class="stage-clear-title" id="stage-clear-title">Stage 1 Clear!</h2>
+      <p class="stage-clear-subtitle">잠시 후 다음 스테이지가 시작됩니다...</p>
+      <div class="stage-clear-grid">
+        <div class="stat-item">
+          <div class="stat-item-label">맞힌 문제</div>
+          <div class="stat-item-value" id="stage-clear-correct">0 <span class="small">/ 10</span></div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-item-label">Stage 점수</div>
+          <div class="stat-item-value" id="stage-clear-score">0</div>
+        </div>
+        <div class="stat-item" style="grid-column: 1 / -1;">
+          <div class="stat-item-label">누적 총점</div>
+          <div class="stat-item-value" id="stage-clear-total-score">0</div>
+        </div>
+      </div>
     </div>
 
     <div class="end-screen" id="end-screen">
@@ -428,15 +506,27 @@
   </div>
 
   <script>
+    // ==================== 주석: 2차 수정 (Stage Clear UX) ====================
+    // 1. **Stage Clear 전용 화면**: 기존의 간단한 Stage 완료 화면을, 요구사항에 명시된
+    //    상세 정보(맞힌 개수, 스테이지 점수, 누적 총점)를 표시하는 새로운 UI로 교체했습니다.
+    //    (HTML: stage-result -> stage-clear-screen, CSS: .stage-clear 추가)
+    //
+    // 2. **정답 수 추적**: `gameState` 객체에 `stageCorrectAnswers`를 추가하여,
+    //    스테이지 내에서 맞힌 문제 수를 정확히 추적합니다. 이 값은 새 스테이지가 시작될 때마다 0으로 초기화됩니다.
+    //
+    // 3. **Stage Clear 로직 분리**: 기존 `showStageResult` 함수를 `showStageClearScreen` 함수로
+    //    개선 및 변경했습니다. 이 함수는 계산된 통계를 화면에 표시하고, 2초 후에 자동으로
+    //    다음 스테이지를 로드하는 역할을 명확히 담당합니다.
+    // =================================================================
+
     // ==================== DOM 요소 ====================
     const quizContainer = document.getElementById('quiz-container');
-    const stageResult = document.getElementById('stage-result');
-    const endScreen = document.getElementById('end-screen');
+    const stageClearScreenEl = document.getElementById('stage-clear-screen'); // ID 변경
+    const endScreenEl = document.getElementById('end-screen');
     const questionEl = document.getElementById('question');
     const optionsEl = document.getElementById('options');
     const feedbackEl = document.getElementById('feedback');
     const restartBtn = document.getElementById('restart-btn');
-    const nextStageBtn = document.getElementById('next-stage-btn');
     const scoreDisplayEl = document.getElementById('score-display');
     const pointsDisplayEl = document.getElementById('points-display');
     const stageIndicator = document.getElementById('stage-indicator');
@@ -444,266 +534,273 @@
     const difficultyBadge = document.getElementById('difficulty-badge');
     const difficultyText = document.getElementById('difficulty-text');
     const progressBar = document.getElementById('progress-bar');
-    const stageScoreEl = document.getElementById('stage-score');
-    const stageMessageEl = document.getElementById('stage-message');
+
+    // Stage Clear 화면의 DOM 요소들
+    const stageClearTitleEl = document.getElementById('stage-clear-title');
+    const stageClearCorrectEl = document.getElementById('stage-clear-correct');
+    const stageClearScoreEl = document.getElementById('stage-clear-score');
+    const stageClearTotalScoreEl = document.getElementById('stage-clear-total-score');
+
     const finalScoreEl = document.getElementById('final-score');
     const scoreMessageEl = document.getElementById('score-message');
 
-    // ==================== 게임 상태 ====================
+    // ==================== 게임 상태 관리 ====================
     const QUESTIONS_PER_STAGE = 10;
-    let allQuestions = [];
-    let currentStage = 1;
-    let questionIndexInStage = 0;
-    let totalScore = 0;
-    let stageScore = 0;
-    let answered = false;
+    const API_URL = ''; // 상대 경로 사용
 
-    // API 서버 URL
-    const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-      ? 'http://localhost:5000'
-      : window.location.origin;
+    const gameState = {
+      currentStage: 1,
+      questionIndex: 0,
+      totalScore: 0,
+      stageScore: 0,
+      stageCorrectAnswers: 0, // 수정: 스테이지 정답 수 추적
+      currentQuestions: [],
+      isAnswered: false,
+    };
 
-    // ==================== 데이터 로드 ====================
-    async function loadQuizData() {
+    // ==================== 핵심 게임 로직 ====================
+
+    /** 게임 시작 */
+    function startGame() {
+      gameState.currentStage = 1;
+      gameState.totalScore = 0;
+      endScreenEl.classList.remove('show');
+      stageClearScreenEl.classList.remove('show');
+      quizContainer.style.display = 'block';
+      updateScoreDisplay();
+      loadStage(gameState.currentStage);
+    }
+
+    /** 스테이지 데이터 로드 */
+    async function loadStage(stageNum) {
       try {
-        questionEl.textContent = '데이터 로드 중...';
+        quizContainer.style.display = 'block';
+        stageClearScreenEl.classList.remove('show');
+        questionEl.textContent = `Stage ${stageNum} 로딩 중...`;
+        optionsEl.innerHTML = '<div class="option disabled">...</div>';
 
-        let loadedQuestions = [];
+        let stageData = [];
 
-        // GitHub Pages, Live Server, 또는 정적 호스팅: questions.json 직접 로드
-        const isLiveServer = window.location.port >= 5500 && window.location.port < 5600;
-        const isGitHubPages = window.location.hostname.includes('github.io');
-        const isFileProtocol = window.location.protocol === 'file:';
+        // 정적 호스팅 환경 감지 (GitHub Pages, Live Server 포트 5500~5599, 파일 프로토콜)
+        const isStaticHost = window.location.hostname.includes('github.io') ||
+          (window.location.port >= 5500 && window.location.port <= 5599) ||
+          window.location.protocol === 'file:';
 
-        if (isGitHubPages || isFileProtocol || isLiveServer) {
-          const response = await fetch('./questions.json');
-          if (!response.ok) throw new Error(`JSON 로드 실패: ${response.status}`);
+        if (isStaticHost) {
+          // === 정적 모드: questions.json 직접 로드 ===
+          if (!gameState.allStaticQuestions || gameState.allStaticQuestions.length === 0) {
+            const response = await fetch('questions.json');
+            if (!response.ok) throw new Error(`JSON 로드 실패: ${response.status}`);
+            const data = await response.json();
 
-          const data = await response.json();
+            // 데이터 변환 및 평탄화
+            let allQ = [];
+            const categories = ['artist', 'song', 'general'];
+            const pointsMap = { 'easy': 40, 'medium': 81, 'hard': 122 };
 
-          // JSON 형식을 API 형식으로 변환
-          const categories = ['artist', 'song', 'general'];
-          categories.forEach(category => {
-            if (data.categories && data.categories[category]) {
-              data.categories[category].forEach(q => {
-                // 난이도별 점수 할당
-                const pointsMap = { 'easy': 40, 'medium': 81, 'hard': 122 };
-                const points = pointsMap[q.difficulty] || 40;
-
-                loadedQuestions.push({
-                  id: q.id,
-                  question: q.question,
-                  difficulty: q.difficulty || 'easy',
-                  points: points,
-                  is_active: true,
-                  category: category,
-                  explanation: q.explanation || '',
-                  options: q.options.map((text, idx) => ({
-                    id: idx,
-                    option_text: text,
-                    order_num: idx,
-                    is_correct: idx === q.answer
-                  }))
+            categories.forEach(cat => {
+              if (data.categories[cat]) {
+                data.categories[cat].forEach(q => {
+                  allQ.push({
+                    id: q.id,
+                    question: q.question,
+                    difficulty: q.difficulty || 'easy',
+                    points: pointsMap[q.difficulty] || 40,
+                    category: cat,
+                    explanation: q.explanation || '',
+                    options: q.options.map((txt, idx) => ({
+                      id: idx,
+                      option_text: txt,
+                      order_num: idx,
+                      is_correct: idx === q.answer
+                    }))
+                  });
                 });
-              });
-            }
-          });
+              }
+            });
 
-          // 랜덤 셔플 (정적 모드에서는 클라이언트 셔플 필요)
-          loadedQuestions.sort(() => Math.random() - 0.5);
+            // 전체 문제 랜덤 섞기 (최초 1회)
+            allQ.sort(() => Math.random() - 0.5);
+            gameState.allStaticQuestions = allQ;
+          }
+
+          // 현재 스테이지에 해당하는 문제 10개 추출
+          const startIdx = (stageNum - 1) * QUESTIONS_PER_STAGE;
+          stageData = gameState.allStaticQuestions.slice(startIdx, startIdx + QUESTIONS_PER_STAGE);
+
+          // 문제가 없으면(모든 문제 소진) 게임 종료
+          if (stageData.length === 0) {
+            showEndScreen();
+            return;
+          }
 
         } else {
-          // 로컬 개발: API 사용
-          const response = await fetch(`${API_URL}/api/quiz?limit=200`);
-          if (!response.ok) throw new Error(`API 오류: ${response.status}`);
+          // === API 모드: Flask 서버 호출 ===
+          const response = await fetch(`${API_URL}/api/quiz?stage=${stageNum}`);
+          if (!response.ok) {
+            throw new Error(`서버 오류: ${response.status}`);
+          }
 
           const result = await response.json();
-          if (!result.success) throw new Error(result.error || 'API 응답 오류');
 
-          loadedQuestions = result.data || [];
+          if (result.end_of_quiz === true || !result.data || result.data.length === 0) {
+            showEndScreen();
+            return;
+          }
+          stageData = result.data;
         }
 
-        allQuestions = loadedQuestions;
-        if (allQuestions.length === 0) throw new Error('활성 문제가 없습니다.');
+        // 공통: 스테이지 상태 초기화
+        gameState.currentQuestions = stageData;
+        gameState.questionIndex = 0;
+        gameState.stageScore = 0;
+        gameState.stageCorrectAnswers = 0;
+        gameState.currentStage = stageNum;
 
-        console.log(`${allQuestions.length}개 문제 로드 완료`);
-        startStage();
+        stageIndicator.textContent = `Stage ${stageNum}`;
+        displayQuestion();
+
       } catch (error) {
-        console.error('퀴즈 데이터 로드 실패:', error);
+        console.error(`Stage ${stageNum} 로드 실패:`, error);
         questionEl.innerHTML = `
-          <div style="text-align: center; padding: 30px; color: var(--wrong);">
-            <h2>데이터 로드 실패</h2>
-            <p>${error.message}</p>
-            <p style="font-size: 14px; margin-top: 15px;">
-              ${window.location.hostname.includes('github.io') ?
-            '잠시 후 다시 시도해주세요.' :
-            '로컬 서버 실행: python run_server.py'}
-            </p>
-          </div>
-        `;
+                  <div style="text-align: center; color: var(--wrong); padding: 20px;">
+                      <h3>⚠️ 데이터 로드 실패</h3>
+                      <p>${error.message}</p>
+                      <p style="font-size: 0.8em; margin-top: 10px; opacity: 0.8;">
+                          ${window.location.hostname.includes('github.io') ? '새로고침을 해보세요.' : '로컬 서버(python run_server.py)가 실행 중인지 확인하세요.'}
+                      </p>
+                  </div>`;
       }
     }
 
-    // ==================== Stage 시작 ====================
-    function startStage() {
-      questionIndexInStage = 0;
-      stageScore = 0;
-      quizContainer.style.display = 'block';
-      stageResult.classList.remove('show');
-      endScreen.classList.remove('show');
-
-      stageIndicator.textContent = `Stage ${currentStage}`;
-      displayQuestion();
-    }
-
-    // ==================== 문제 표시 ====================
+    /** 문제 표시 */
     function displayQuestion() {
-      const globalIndex = (currentStage - 1) * QUESTIONS_PER_STAGE + questionIndexInStage;
+      // ... (이 함수는 변경 없음) ...
+      gameState.isAnswered = false;
+      const question = gameState.currentQuestions[gameState.questionIndex];
 
-      if (globalIndex >= allQuestions.length) {
-        showEndScreen();
+      if (!question) {
+        console.error('표시할 문제가 없습니다.', gameState);
         return;
       }
-
-      if (questionIndexInStage >= QUESTIONS_PER_STAGE) {
-        showStageResult();
-        return;
-      }
-
-      answered = false;
-      const question = allQuestions[globalIndex];
-
-      // 문제 텍스트
-      questionEl.textContent = question.question;
-
-      // 난이도 표시
-      const difficulty = question.difficulty || 'easy';
-      difficultyBadge.className = `difficulty-badge difficulty-${difficulty}`;
-      difficultyText.textContent = difficulty.toUpperCase();
-
-      // 점수 표시
-      const points = question.points || 40;
-      pointsDisplayEl.textContent = `${points}pt`;
-      pointsDisplayEl.style.color = difficulty === 'hard' ? '#e57373' : difficulty === 'medium' ? '#ffb74d' : '#81c784';
-
-      // 선택지 생성
-      optionsEl.innerHTML = '';
-      let correctOptionIndex = -1;
-      const sortedOptions = question.options.sort((a, b) => a.order_num - b.order_num);
-
-      sortedOptions.forEach((option, index) => {
-        if (option.is_correct) correctOptionIndex = index;
-      });
-
-      sortedOptions.forEach((option, index) => {
-        const btn = document.createElement('button');
-        btn.className = 'option';
-        btn.innerHTML = `<span class="option-label">${String.fromCharCode(65 + index)}.</span>${option.option_text}`;
-        btn.addEventListener('click', () => checkAnswer(index, correctOptionIndex, question.points || 40, question.explanation));
-        optionsEl.appendChild(btn);
-      });
-
-      // 진행 상황
-      questionCounter.textContent = `Question ${questionIndexInStage + 1} of ${QUESTIONS_PER_STAGE}`;
-      const progressPercent = ((questionIndexInStage + 1) / QUESTIONS_PER_STAGE) * 100;
-      progressBar.style.width = progressPercent + '%';
-
-      // 점수 표시
-      scoreDisplayEl.textContent = `점수: ${totalScore.toLocaleString()} / 10,000`;
 
       feedbackEl.className = 'feedback';
       feedbackEl.textContent = '';
-    }
 
-    // ==================== 답변 확인 ====================
-    function checkAnswer(selectedIndex, correctIndex, points, explanation) {
-      if (answered) return;
-      answered = true;
+      questionEl.textContent = question.question;
 
-      const isCorrect = selectedIndex === correctIndex;
+      const difficulty = question.difficulty || 'easy';
+      difficultyBadge.className = `difficulty-badge difficulty-${difficulty.toLowerCase()}`;
+      difficultyText.textContent = difficulty.toUpperCase();
 
-      // UI 업데이트
-      const options = document.querySelectorAll('.option');
-      options.forEach((option, index) => {
-        option.classList.add('disabled');
-        if (index === correctIndex) option.classList.add('correct');
-        if (index === selectedIndex && !isCorrect) option.classList.add('wrong');
+      pointsDisplayEl.textContent = `${question.points}pt`;
+      pointsDisplayEl.style.color = 'var(--muted)';
+
+      optionsEl.innerHTML = '';
+      question.options.forEach((option, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'option';
+        btn.innerHTML = `<span class="option-label">${String.fromCharCode(65 + index)}.</span>${option.option_text}`;
+        btn.addEventListener('click', () => handleAnswer(option));
+        optionsEl.appendChild(btn);
       });
 
-      // 점수 적용
+      questionCounter.textContent = `Question ${gameState.questionIndex + 1} of ${QUESTIONS_PER_STAGE}`;
+      progressBar.style.width = `${((gameState.questionIndex + 1) / QUESTIONS_PER_STAGE) * 100}%`;
+    }
+
+    /** 답변 처리 및 자동 전환 */
+    function handleAnswer(selectedOption) {
+      if (gameState.isAnswered) return;
+      gameState.isAnswered = true;
+
+      const question = gameState.currentQuestions[gameState.questionIndex];
+      const correctOption = question.options.find(opt => opt.is_correct);
+      const isCorrect = selectedOption.id === correctOption.id;
+
+      document.querySelectorAll('.option').forEach(btn => {
+        btn.classList.add('disabled');
+        const btnText = btn.innerHTML;
+        if (isCorrect && btnText.includes(selectedOption.option_text)) {
+          btn.classList.add('correct');
+        } else if (!isCorrect && btnText.includes(selectedOption.option_text)) {
+          btn.classList.add('wrong');
+        }
+        if (!isCorrect && btnText.includes(correctOption.option_text)) {
+          btn.classList.add('correct');
+        }
+      });
+
       if (isCorrect) {
-        totalScore += points;
-        stageScore += points;
+        const points = question.points;
+        gameState.totalScore += points;
+        gameState.stageScore += points;
+        gameState.stageCorrectAnswers++; // 수정: 정답 수 카운트
         feedbackEl.className = 'feedback show correct';
-        feedbackEl.textContent = `정답! +${points}pt ` + (explanation || '');
+        feedbackEl.textContent = `정답! +${points}pt. ${question.explanation || ''}`;
       } else {
         feedbackEl.className = 'feedback show wrong';
-        feedbackEl.textContent = '틀렸습니다. ' + (explanation || '');
+        feedbackEl.textContent = `틀렸습니다. ${question.explanation || ''}`;
       }
 
-      scoreDisplayEl.textContent = `점수: ${totalScore.toLocaleString()} / 10,000`;
+      updateScoreDisplay();
+      setTimeout(nextStep, isCorrect ? 800 : 1200);
+    }
 
-      // 자동 전환
-      const delay = isCorrect ? 1000 : 1200;
-      setTimeout(() => {
-        questionIndexInStage++;
+    /** 다음 문제 또는 스테이지 클리어 화면으로 이동 */
+    function nextStep() {
+      gameState.questionIndex++;
+      // 수정: 스테이지의 마지막 문제인지 확인
+      if (gameState.questionIndex < gameState.currentQuestions.length) {
         displayQuestion();
-      }, delay);
-    }
-
-    // ==================== Stage 결과 ====================
-    function showStageResult() {
-      quizContainer.style.display = 'none';
-      stageResult.classList.add('show');
-
-      // Stage별 최대 점수 계산 (대략)
-      const maxStagePoints = Math.round(10000 / Math.ceil(allQuestions.length / QUESTIONS_PER_STAGE));
-      stageScoreEl.textContent = `${stageScore.toLocaleString()} / ~${maxStagePoints.toLocaleString()}`;
-
-      const percentage = (stageScore / maxStagePoints) * 100;
-      if (percentage >= 80) {
-        stageMessageEl.textContent = '훌륭해요! 다음 Stage로!';
-      } else if (percentage >= 60) {
-        stageMessageEl.textContent = '잘했어요! 계속 도전!';
       } else {
-        stageMessageEl.textContent = '다음 Stage에서 더 잘할 수 있어요!';
+        showStageClearScreen(); // 수정: Stage Clear 화면 호출
       }
     }
 
-    // ==================== 최종 결과 ====================
+    /** 점수판 업데이트 */
+    function updateScoreDisplay() {
+      scoreDisplayEl.textContent = `점수: ${gameState.totalScore.toLocaleString()} / 10,000`;
+    }
+
+    /** Stage Clear 화면 표시 및 자동 전환 (수정된 함수) */
+    function showStageClearScreen() {
+      quizContainer.style.display = 'none';
+      stageClearScreenEl.classList.add('show');
+
+      // 요구사항에 맞게 정보 업데이트
+      stageClearTitleEl.textContent = `Stage ${gameState.currentStage} Clear!`;
+      stageClearCorrectEl.innerHTML = `${gameState.stageCorrectAnswers} <span class="small">/ ${QUESTIONS_PER_STAGE}</span>`;
+      stageClearScoreEl.textContent = gameState.stageScore.toLocaleString();
+      stageClearTotalScoreEl.textContent = gameState.totalScore.toLocaleString();
+
+      // 2초 후 다음 스테이지 자동 시작
+      setTimeout(() => {
+        loadStage(gameState.currentStage + 1);
+      }, 2000);
+    }
+
+    /** 최종 결과 표시 */
     function showEndScreen() {
+      // ... (이 함수는 변경 없음) ...
       quizContainer.style.display = 'none';
-      stageResult.classList.remove('show');
-      endScreen.classList.add('show');
+      stageClearScreenEl.classList.remove('show');
+      endScreenEl.classList.add('show');
 
-      finalScoreEl.textContent = `${totalScore.toLocaleString()} / 10,000`;
+      finalScoreEl.textContent = `${gameState.totalScore.toLocaleString()} / 10,000`;
 
-      const percentage = (totalScore / 10000) * 100;
-      if (percentage >= 90) {
-        scoreMessageEl.textContent = '완벽해요! K-pop 마스터입니다!';
-      } else if (percentage >= 70) {
-        scoreMessageEl.textContent = '훌륭해요! 거의 마스터 수준!';
-      } else if (percentage >= 50) {
-        scoreMessageEl.textContent = '잘했어요! 더 알아보세요!';
-      } else {
-        scoreMessageEl.textContent = '계속 도전해보세요!';
-      }
+      const percentage = (gameState.totalScore / 10000) * 100;
+      if (percentage >= 90) scoreMessageEl.textContent = '완벽해요! 당신은 K-pop 마스터입니다!';
+      else if (percentage >= 70) scoreMessageEl.textContent = '훌륭해요! 거의 마스터 수준!';
+      else if (percentage >= 50) scoreMessageEl.textContent = '잘했어요! K-pop 전문가를 향해!';
+      else scoreMessageEl.textContent = '다시 도전해서 K-pop 지식을 넓혀보세요!';
     }
 
     // ==================== 이벤트 핸들러 ====================
-    nextStageBtn.addEventListener('click', () => {
-      currentStage++;
-      startStage();
-    });
-
-    restartBtn.addEventListener('click', () => {
-      currentStage = 1;
-      totalScore = 0;
-      loadQuizData();
-    });
+    restartBtn.addEventListener('click', startGame);
 
     // ==================== 초기화 ====================
-    loadQuizData();
+    document.addEventListener('DOMContentLoaded', startGame);
   </script>
 </body>
 

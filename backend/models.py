@@ -33,9 +33,10 @@ class Question(db.Model):
     explanation = db.Column(db.Text)
     difficulty = db.Column(db.String(20), default='easy')  # easy, medium, hard
     
-    # 일일 문제 관리 및 차등 점수 시스템
+    # 새로운 스테이지 기반 시스템
+    stage = db.Column(db.Integer, index=True) # 스테이지 번호
     is_active = db.Column(db.Boolean, default=True, index=True)  # 활성 문제 여부
-    points = db.Column(db.Integer, default=1)  # 문제당 점수 (Easy:1, Medium:2, Hard:3)
+    points = db.Column(db.Integer, default=100)  # 문제당 점수 (100점 고정)
     
     created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
@@ -51,8 +52,9 @@ class Question(db.Model):
             'question': self.question,
             'explanation': self.explanation,
             'difficulty': self.difficulty,
+            'stage': self.stage, # 스테이지 정보 추가
             'is_active': self.is_active,
-            'points': self.points,  # 차등 점수 포함
+            'points': self.points,
             'created_at': self.created_at.isoformat(),
             'updated_at': self.updated_at.isoformat()
         }

@@ -9,7 +9,11 @@ from config import config
 
 
 def load_json_to_db(app):
-    """JSON 파일의 데이터를 DB에 동기화"""
+    """
+    JSON 파일의 데이터를 DB에 동기화 (개선된 버전)
+    - stage 정보 추가 (10문제당 1스테이지)
+    - points 100점으로 고정
+    """
     with app.app_context():
         try:
             # JSON 로드
@@ -18,51 +22,67 @@ def load_json_to_db(app):
                 data = json.load(f)
             
             # 기존 데이터 삭제
-            Question.query.delete()
-            Option.query.delete()
-            Category.query.delete()
+            db.session.query(Option).delete()
+            db.session.query(Question).delete()
+            db.session.query(Category).delete()
             db.session.commit()
             
-            # 카테고리별로 처리
+            # 모든 문제를 하나의 리스트로 통합
+            all_questions = []
+            for category_name, questions_in_cat in data['categories'].items():
+                for q_data in questions_in_cat:
+                    all_questions.append({
+                        'category_name': category_name,
+                        'data': q_data
+                    })
+
+            # 카테고리 미리 생성
+            category_map = {}
             for category_name in ['artist', 'song', 'general']:
-                category = Category(
-                    name=category_name,
-                    description=f"{category_name} 카테고리"
-                )
+                category = Category(name=category_name, description=f"{category_name} 카테고리")
                 db.session.add(category)
                 db.session.flush()
+                category_map[category_name] = category.id
+
+            db.session.commit()
+
+            # 문제 및 스테이지 할당
+            question_count = 0
+            for item in all_questions:
+                category_name = item['category_name']
+                q = item['data']
                 
-                # 문제 추가
-                for q in data['categories'][category_name]:
-                    difficulty = q.get('difficulty', 'easy')
-                    # 난이도별 차등 점수 자동 설정
-                    points_map = {'easy': 1, 'medium': 2, 'hard': 3}
-                    points = points_map.get(difficulty, 1)
-                    
-                    question = Question(
-                        category_id=category.id,
-                        question=q['question'],
-                        explanation=q.get('explanation', ''),
-                        difficulty=difficulty,
-                        is_active=True,  # 기본값: 활성
-                        points=points  # 차등 점수
+                # 스테이지 계산 (10문제당 1스테이지, 1부터 시작)
+                current_stage = (question_count // 10) + 1
+                
+                question = Question(
+                    category_id=category_map[category_name],
+                    question=q['question'],
+                    explanation=q.get('explanation', ''),
+                    difficulty=q.get('difficulty', 'easy'),
+                    is_active=True,
+                    points=100,  # 점수 100점으로 고정
+                    stage=current_stage # 스테이지 정보 추가
+                )
+                db.session.add(question)
+                db.session.flush()
+                
+                # 선택지 추가
+                for idx, option_text in enumerate(q['options']):
+                    option = Option(
+                        question_id=question.id,
+                        option_text=option_text,
+                        is_correct=(idx == q['answer']),
+                        order_num=idx
                     )
-                    db.session.add(question)
-                    db.session.flush()
-                    
-                    # 선택지 추가
-                    for idx, option_text in enumerate(q['options']):
-                        option = Option(
-                            question_id=question.id,
-                            option_text=option_text,
-                            is_correct=(idx == q['answer']),
-                            order_num=idx
-                        )
-                        db.session.add(option)
+                    db.session.add(option)
+                
+                question_count += 1
             
             db.session.commit()
-            print(f"DB sync complete: {Question.query.count()} questions loaded")
+            print(f"DB sync complete: {Question.query.count()} questions in { (question_count - 1) // 10 + 1 if question_count > 0 else 0} stages loaded")
         except Exception as e:
+            db.session.rollback()
             print(f"DB sync failed: {e}")
 
 
@@ -123,48 +143,51 @@ def get_categories():
 
 @app.route('/api/quiz', methods=['GET'])
 def get_quiz():
-    """퀴즈 문제 조회 (활성 문제만, SQL 레벨 랜덤화)
+    """
+    특정 스테이지의 퀴즈 문제 10개를 랜덤 순서로 조회합니다.
     
     쿼리 파라미터:
-    - limit: 가져올 문제 수 (기본값: 100)
+    - stage: 조회할 스테이지 번호 (필수)
     
     변경사항:
-    - 난이도 필터 제거 (모든 난이도 출제)
-    - is_active=True 문제만 조회 (일일 업데이트 지원)
-    - SQL RANDOM()으로 서버 레벨 랜덤화
+    - stage 파라미터를 받도록 변경
+    - 해당 스테이지의 활성 문제만 랜덤으로 정렬하여 반환
     """
     try:
-        # 쿼리 파라미터
-        limit = int(request.args.get('limit', 100))
+        # 쿼리 파라미터에서 stage 번호 가져오기
+        stage_num = request.args.get('stage')
+        if not stage_num:
+            return jsonify({'success': False, 'error': 'Stage parameter is required'}), 400
         
-        # 활성 문제만 조회 + SQL 레벨 랜덤화
-        # SQLite의 경우 func.random() 사용
+        try:
+            stage_num = int(stage_num)
+        except ValueError:
+            return jsonify({'success': False, 'error': 'Stage must be an integer'}), 400
+
+        # 해당 스테이지의 활성 문제만 조회 + SQL 레벨 랜덤화
         from sqlalchemy import func
-        questions = Question.query.filter_by(is_active=True)\
+        questions = Question.query.filter_by(is_active=True, stage=stage_num)\
             .order_by(func.random())\
-            .limit(limit)\
             .all()
+
+        # 해당 스테이지에 문제가 없는 경우
+        if not questions:
+            # 마지막 스테이지인지 확인하기 위한 쿼리
+            max_stage = db.session.query(func.max(Question.stage)).scalar()
+            if stage_num > max_stage:
+                return jsonify({'success': True, 'data': [], 'end_of_quiz': True}), 200
+            
+            return jsonify({'success': False, 'error': f'No questions found for stage {stage_num}'}), 404
         
-        # 응답 구성 (points 필드 포함)
-        quiz_data = []
-        for q in questions:
-            q_dict = q.to_dict()
-            # 선택지 정보 포함 (order_num 기준으로 정렬)
-            q_dict['options'] = [
-                {
-                    'id': opt['id'],
-                    'option_text': opt['option_text'],
-                    'order_num': opt['order_num'],
-                    'is_correct': opt['is_correct']
-                }
-                for opt in q_dict['options']
-            ]
-            quiz_data.append(q_dict)
+        # 응답 구성 (to_dict 활용)
+        quiz_data = [q.to_dict(include_options=True) for q in questions]
         
         return jsonify({
             'success': True,
             'data': quiz_data,
-            'count': len(quiz_data)
+            'count': len(quiz_data),
+            'stage': stage_num,
+            'end_of_quiz': False
         }), 200
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
