@@ -1777,7 +1777,92 @@
         "category": "general",
         "explanation": "닝닝은 중국 출신입니다.",
         "difficulty": "medium"
-      }
+      },
+      
+          {
+      "id": "art111",
+      "question": "2025년 2월 SM엔터테인먼트에서 에스파 이후 약 5년 만에 데뷔시킨 8인조 걸그룹의 이름은?",
+      "options": ["KiiiKiii", "Hearts2Hearts", "MEOVV", "Baby DONT Cry"],
+      "answer": 1,
+      "explanation": "Hearts2Hearts(하츠투하츠)는 2025년 2월 24일 데뷔곡 'The Chase'로 데뷔했으며, 지우, 카르멘, 유하, 스텔라, 주은, 에이나, 이안, 예온 8명의 멤버로 구성되어 있습니다.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "art112",
+      "question": "2025년 6월 THEBLACKLABEL에서 데뷔시킨 혼성그룹으로, 데뷔곡 'FAMOUS'로 멜론 차트 1위를 기록한 그룹은?",
+      "options": ["KARD", "ALLDAY PROJECT", "체크메이트", "올데이프로젝트"],
+      "answer": 1,
+      "explanation": "ALLDAY PROJECT는 2025년 6월 23일 데뷔한 5인조 혼성그룹으로, 타잔, 베일리, 우찬, 영서, 로다로 구성되어 있으며 데뷔 10일 만에 음악방송 1위를 차지했습니다.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "art113",
+      "question": "스타쉽엔터테인먼트가 IVE 이후 약 3년 만에 2025년 3월 데뷔시킨 5인조 걸그룹은?",
+      "options": ["Hearts2Hearts", "KiiiKiii", "KIIRAS", "VVS"],
+      "answer": 1,
+      "explanation": "KiiiKiii(키키)는 2025년 3월 24일 데뷔했으며, 지유, 이솔, 수이, 하음, 키야로 구성된 5인조 걸그룹입니다. 데뷔곡 'I DO ME'로 활동했습니다.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "art114",
+      "question": "2025년 1월 JYP엔터테인먼트에서 Stray Kids 이후 약 8년 만에 데뷔시킨 7인조 보이그룹은?",
+      "options": ["NEXZ", "KickFlip", "NouerA", "코르티스"],
+      "answer": 1,
+      "explanation": "KickFlip(킥플립)은 2025년 1월 20일 데뷔 앨범 'Flip it, Kick it!'로 데뷔했으며, SBS 서바이벌 '라우드' 출신 멤버들을 포함한 7인조 그룹입니다.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "gen038",
+      "question": "2025년에 데뷔한 아이돌 그룹의 총 팀 수는? (2024년 12월~2025년 11월 기준)",
+      "options": ["25팀", "30팀", "35팀", "40팀"],
+      "answer": 2,
+      "explanation": "아이돌로지 집계에 따르면 2025년에는 보이그룹 18팀, 걸그룹 16팀, 혼성그룹 1팀으로 총 35팀이 데뷔했습니다.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "art115",
+      "question": "빅히트뮤직이 2025년에 데뷔시킨 신인 보이그룹으로, 루프스테이션을 활용한 인트로와 실험적 시도로 화제를 모은 그룹은?",
+      "options": ["킥플립", "코르티스", "NouerA", "EVNNE"],
+      "answer": 1,
+      "explanation": "코르티스(CORTIS)는 2025년 빅히트뮤직에서 데뷔한 보이그룹으로, 루프스테이션 활용과 높은 난도의 퍼포먼스로 주목받았습니다.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "gen039",
+      "question": "ALLDAY PROJECT의 멤버 중 'R U Next'에서 최종 2위를 차지했으나 데뷔가 무산된 후 합류한 멤버는?",
+      "options": ["타잔", "영서", "베일리", "우찬"],
+      "answer": 1,
+      "explanation": "영서는 Mnet의 걸그룹 서바이벌 'R U Next'에서 최종 2위를 기록했으나 ILLIT 데뷔가 무산된 후 ALLDAY PROJECT의 멤버로 합류했습니다.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "art116",
+      "question": "2025년 5월에 데뷔하여 '5세대 육각형 걸그룹'이라 불리며 국악 신동 멤버 로아가 소속된 그룹은?",
+      "options": ["Hearts2Hearts", "KIIRAS", "KiiiKiii", "VVS"],
+      "answer": 1,
+      "explanation": "KIIRAS(키라스)는 2025년 5월 데뷔 앨범 'KILL MA BO$$'로 데뷔했으며, 막내 로아가 아이돌 최초로 '국악한마당'에 출연해 화제를 모았습니다.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "gen040",
+      "question": "2025년 혼성그룹으로 데뷔하여 KARD 이후 약 몇 년 만에 등장한 대형 기획사 혼성그룹인가?",
+      "options": ["5년", "6년", "7년", "8년"],
+      "answer": 3,
+      "explanation": "ALLDAY PROJECT는 KARD(2017년 데뷔) 이후 약 8년 만에 등장한 대형 기획사 출신 혼성그룹으로, 2025년 6월에 데뷔했습니다.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "art117",
+      "question": "이해인 디렉터가 프로듀싱하여 2024년 12월 데뷔한 보이그룹으로, '내 안의 모든 시와 소설은'으로 데뷔 며칠 만에 가요계 정상에 오른 그룹은?",
+      "options": ["킥플립", "클로즈 유어 아이즈", "코르티스", "NouerA"],
+      "answer": 1,
+      "explanation": "클로즈 유어 아이즈(Close Your Eyes)는 KISS OF LIFE의 디렉터 이해인이 프로듀싱한 그룹으로, 2024년 12월 데뷔하여 빠르게 차트 정상에 올랐습니다.",
+      "difficulty": "hard"
+    }
+
+      
+      
+      
     ]
   }
 }
