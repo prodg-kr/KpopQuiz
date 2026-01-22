@@ -62,7 +62,7 @@ def load_json_to_db(app):
                     difficulty=q.get('difficulty', 'easy'),
                     is_active=True,
                     points=100,  # 점수 100점으로 고정
-                    stage=current_stage # 스테이지 정보 추가
+                    stage=current_stage, # 스테이지 정보 추가
                 )
                 db.session.add(question)
                 db.session.flush()

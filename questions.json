@@ -1,13 +1,18 @@
 {
   "version": "2.0.0",
-  "lastUpdated": "2026-01-19",
-  "totalQuestions": 110,
+  "lastUpdated": "2026-01-21",
+  "totalQuestions": 130,
   "categories": {
     "artist": [
       {
         "id": "art001",
         "question": "AESPA가 데뷔한 연도는?",
-        "options": ["2019", "2020", "2021", "2022"],
+        "options": [
+          "2019",
+          "2020",
+          "2021",
+          "2022"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "AESPA는 2020년 11월 17일 SM엔터테인먼트에서 데뷔했습니다.",
@@ -16,7 +21,12 @@
       {
         "id": "art002",
         "question": "NewJeans의 멤버 수는?",
-        "options": ["4", "5", "6", "7"],
+        "options": [
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "NewJeans는 5명의 멤버로 구성되어 있습니다.",
@@ -25,7 +35,12 @@
       {
         "id": "art003",
         "question": "IVE의 센터는?",
-        "options": ["Ahn Yujin", "Jang Wonyoung", "Rei", "Leeseo"],
+        "options": [
+          "Ahn Yujin",
+          "Jang Wonyoung",
+          "Rei",
+          "Leeseo"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "Jang Wonyoung이 IVE의 센터입니다.",
@@ -34,7 +49,12 @@
       {
         "id": "art004",
         "question": "Le Sserafim을 프로듀싱한 회사는?",
-        "options": ["YG", "JYP", "HYBE", "SM"],
+        "options": [
+          "YG",
+          "JYP",
+          "HYBE",
+          "SM"
+        ],
         "answer": 2,
         "category": "artist",
         "explanation": "Le Sserafim은 HYBE 산하 SOURCE MUSIC에서 데뷔했습니다.",
@@ -43,7 +63,12 @@
       {
         "id": "art005",
         "question": "STAYC는 어느 연도에 데뷔했나?",
-        "options": ["2019", "2020", "2021", "2022"],
+        "options": [
+          "2019",
+          "2020",
+          "2021",
+          "2022"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "STAYC는 2020년 11월 12일 Black Eyed Pilseung에서 데뷔했습니다.",
@@ -52,7 +77,12 @@
       {
         "id": "art006",
         "question": "AESPA의 리더는?",
-        "options": ["Ningning", "Winter", "Karina", "Giselle"],
+        "options": [
+          "Ningning",
+          "Winter",
+          "Karina",
+          "Giselle"
+        ],
         "answer": 2,
         "category": "artist",
         "explanation": "Karina가 AESPA의 리더입니다.",
@@ -61,7 +91,12 @@
       {
         "id": "art007",
         "question": "IVE가 데뷔한 연도는?",
-        "options": ["2020", "2021", "2022", "2023"],
+        "options": [
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "IVE는 2021년 12월 1일 Starship엔터테인먼트에서 데뷔했습니다.",
@@ -70,7 +105,12 @@
       {
         "id": "art008",
         "question": "NewJeans의 데뷔 연도는?",
-        "options": ["2021", "2022", "2023", "2024"],
+        "options": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "NewJeans는 2022년 8월 1일 HYBE 산하 ADOR에서 데뷔했습니다.",
@@ -79,7 +119,12 @@
       {
         "id": "art009",
         "question": "Le Sserafim이 데뷔한 연도는?",
-        "options": ["2021", "2022", "2023", "2024"],
+        "options": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "Le Sserafim은 2022년 5월 2일 HYBE LABELS에서 데뷔했습니다.",
@@ -88,7 +133,12 @@
       {
         "id": "art010",
         "question": "FIFTY FIFTY가 소속된 회사는?",
-        "options": ["Attrakt", "Starship", "HYBE", "YG"],
+        "options": [
+          "Attrakt",
+          "Starship",
+          "HYBE",
+          "YG"
+        ],
         "answer": 0,
         "category": "artist",
         "explanation": "FIFTY FIFTY는 Attrakt 엔터테인먼트에 소속되어 있습니다.",
@@ -97,7 +147,12 @@
       {
         "id": "art011",
         "question": "AESPA의 멤버 수는?",
-        "options": ["3", "4", "5", "6"],
+        "options": [
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "AESPA는 4명의 멤버로 구성되어 있습니다.",
@@ -106,7 +161,12 @@
       {
         "id": "art012",
         "question": "IVE의 최연소 멤버는?",
-        "options": ["Ahn Yujin", "Jang Wonyoung", "Rei", "Leeseo"],
+        "options": [
+          "Ahn Yujin",
+          "Jang Wonyoung",
+          "Rei",
+          "Leeseo"
+        ],
         "answer": 3,
         "category": "artist",
         "explanation": "Leeseo가 IVE의 막내 멤버입니다.",
@@ -115,7 +175,12 @@
       {
         "id": "art013",
         "question": "NewJeans의 멤버 중 2006년생은?",
-        "options": ["Hanni", "Danielle", "Hybe", "Jeans"],
+        "options": [
+          "Hanni",
+          "Danielle",
+          "Hybe",
+          "Jeans"
+        ],
         "answer": 0,
         "category": "artist",
         "explanation": "Hanni는 2006년생으로 NewJeans의 최연소 멤버입니다.",
@@ -124,7 +189,12 @@
       {
         "id": "art014",
         "question": "STAYC의 리더는?",
-        "options": ["So-u", "Sieun", "Yoon", "J"],
+        "options": [
+          "So-u",
+          "Sieun",
+          "Yoon",
+          "J"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "Sieun이 STAYC의 리더입니다.",
@@ -133,7 +203,12 @@
       {
         "id": "art015",
         "question": "Le Sserafim의 멤버 수는?",
-        "options": ["4", "5", "6", "7"],
+        "options": [
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "Le Sserafim은 5명의 멤버로 구성되어 있습니다.",
@@ -142,7 +217,12 @@
       {
         "id": "art016",
         "question": "BABYMONSTER가 데뷔한 연도는?",
-        "options": ["2022", "2023", "2024", "2025"],
+        "options": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "BABYMONSTER는 2023년 11월 1일 YG엔터테인먼트에서 데뷔했습니다.",
@@ -151,7 +231,12 @@
       {
         "id": "art017",
         "question": "LOONA가 데뷔한 연도는?",
-        "options": ["2019", "2020", "2021", "2022"],
+        "options": [
+          "2019",
+          "2020",
+          "2021",
+          "2022"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "LOONA는 2020년 10월 5일 BlockBerry Creative에서 공식 데뷔했습니다.",
@@ -160,7 +245,12 @@
       {
         "id": "art018",
         "question": "AESPA의 Ningning의 국적은?",
-        "options": ["한국", "중국", "태국", "일본"],
+        "options": [
+          "한국",
+          "중국",
+          "태국",
+          "일본"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "Ningning은 중국 출신의 멤버입니다.",
@@ -169,7 +259,12 @@
       {
         "id": "art019",
         "question": "NewJeans의 리더는?",
-        "options": ["Hanni", "Danielle", "Hebe", "Hyein"],
+        "options": [
+          "Hanni",
+          "Danielle",
+          "Hebe",
+          "Hyein"
+        ],
         "answer": 2,
         "category": "artist",
         "explanation": "Hebe가 NewJeans의 리더입니다.",
@@ -178,7 +273,12 @@
       {
         "id": "art020",
         "question": "Le Sserafim의 리더는?",
-        "options": ["Kim Chaewon", "Huh Yunjin", "Kazuha", "Sakura"],
+        "options": [
+          "Kim Chaewon",
+          "Huh Yunjin",
+          "Kazuha",
+          "Sakura"
+        ],
         "answer": 0,
         "category": "artist",
         "explanation": "Kim Chaewon이 Le Sserafim의 리더입니다.",
@@ -187,7 +287,12 @@
       {
         "id": "art021",
         "question": "STAYC의 멤버 수는?",
-        "options": ["4", "5", "6", "7"],
+        "options": [
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
         "answer": 2,
         "category": "artist",
         "explanation": "STAYC는 6명의 멤버로 구성되어 있습니다.",
@@ -196,7 +301,12 @@
       {
         "id": "art022",
         "question": "IVE의 Rei의 국적은?",
-        "options": ["한국", "중국", "일본", "태국"],
+        "options": [
+          "한국",
+          "중국",
+          "일본",
+          "태국"
+        ],
         "answer": 2,
         "category": "artist",
         "explanation": "Rei는 일본 출신의 멤버입니다.",
@@ -205,7 +315,12 @@
       {
         "id": "art023",
         "question": "NewJeans의 Hanni의 국적은?",
-        "options": ["한국", "호주", "캐나다", "뉴질랜드"],
+        "options": [
+          "한국",
+          "호주",
+          "캐나다",
+          "뉴질랜드"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "Hanni는 호주 출신의 멤버입니다.",
@@ -214,7 +329,12 @@
       {
         "id": "art024",
         "question": "AESPA의 Winter의 본명은?",
-        "options": ["김민정", "민지은", "이지은", "정지은"],
+        "options": [
+          "김민정",
+          "민지은",
+          "이지은",
+          "정지은"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "Winter의 본명은 민지은입니다.",
@@ -223,7 +343,12 @@
       {
         "id": "art025",
         "question": "Le Sserafim의 Sakura의 국적은?",
-        "options": ["한국", "일본", "태국", "중국"],
+        "options": [
+          "한국",
+          "일본",
+          "태국",
+          "중국"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "Sakura는 일본 출신의 멤버입니다.",
@@ -232,7 +357,12 @@
       {
         "id": "art026",
         "question": "BABYMONSTER의 멤버 수는?",
-        "options": ["5", "6", "7", "8"],
+        "options": [
+          "5",
+          "6",
+          "7",
+          "8"
+        ],
         "answer": 2,
         "category": "artist",
         "explanation": "BABYMONSTER는 7명의 멤버로 구성되어 있습니다.",
@@ -241,7 +371,12 @@
       {
         "id": "art027",
         "question": "FIFTY FIFTY의 멤버 수는?",
-        "options": ["2", "3", "4", "5"],
+        "options": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
         "answer": 2,
         "category": "artist",
         "explanation": "FIFTY FIFTY는 4명의 멤버로 구성되어 있습니다.",
@@ -250,7 +385,12 @@
       {
         "id": "art028",
         "question": "IVE의 소속 회사는?",
-        "options": ["YG", "Starship", "HYBE", "JYP"],
+        "options": [
+          "YG",
+          "Starship",
+          "HYBE",
+          "JYP"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "IVE는 Starship엔터테인먼트에 소속되어 있습니다.",
@@ -259,7 +399,12 @@
       {
         "id": "art029",
         "question": "NewJeans의 소속 회사는?",
-        "options": ["SM", "ADOR", "Starship", "YG"],
+        "options": [
+          "SM",
+          "ADOR",
+          "Starship",
+          "YG"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "NewJeans는 HYBE 산하 ADOR에 소속되어 있습니다.",
@@ -268,7 +413,12 @@
       {
         "id": "art030",
         "question": "AESPA의 Giselle의 국적은?",
-        "options": ["한국", "중국", "일본", "싱가포르"],
+        "options": [
+          "한국",
+          "중국",
+          "일본",
+          "싱가포르"
+        ],
         "answer": 3,
         "category": "artist",
         "explanation": "Giselle은 싱가포르 출신의 멤버입니다.",
@@ -277,7 +427,12 @@
       {
         "id": "art031",
         "question": "Le Sserafim의 Huh Yunjin의 국적은?",
-        "options": ["한국", "미국", "캐나다", "영국"],
+        "options": [
+          "한국",
+          "미국",
+          "캐나다",
+          "영국"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "Huh Yunjin은 미국 출신의 멤버입니다.",
@@ -286,7 +441,12 @@
       {
         "id": "art032",
         "question": "BABYMONSTER의 소속 회사는?",
-        "options": ["SM", "YG", "HYBE", "Starship"],
+        "options": [
+          "SM",
+          "YG",
+          "HYBE",
+          "Starship"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "BABYMONSTER는 YG엔터테인먼트에 소속되어 있습니다.",
@@ -295,7 +455,12 @@
       {
         "id": "art033",
         "question": "LOONA의 멤버 수는?",
-        "options": ["9", "10", "11", "12"],
+        "options": [
+          "9",
+          "10",
+          "11",
+          "12"
+        ],
         "answer": 2,
         "category": "artist",
         "explanation": "LOONA는 11명의 멤버로 구성되어 있습니다.",
@@ -304,7 +469,12 @@
       {
         "id": "art034",
         "question": "STAYC의 소속 회사는?",
-        "options": ["High Up", "Black Eyed Pilseung", "Starship", "HYBE"],
+        "options": [
+          "High Up",
+          "Black Eyed Pilseung",
+          "Starship",
+          "HYBE"
+        ],
         "answer": 1,
         "category": "artist",
         "explanation": "STAYC는 Black Eyed Pilseung 엔터테인먼트에 소속되어 있습니다.",
@@ -313,7 +483,12 @@
       {
         "id": "art035",
         "question": "AESPA의 코리아 정규 2집 앨범명은?",
-        "options": ["Savage", "Spicy", "Armageddon", "Sympa"],
+        "options": [
+          "Savage",
+          "Spicy",
+          "Armageddon",
+          "Sympa"
+        ],
         "answer": 3,
         "category": "artist",
         "explanation": "AESPA의 2집 앨범은 'Sympa'입니다.",
@@ -322,10 +497,175 @@
       {
         "id": "art036",
         "question": "NewJeans의 Hanni의 성은?",
-        "options": ["Pham", "Phạm", "Hanni", "Phuong"],
+        "options": [
+          "Pham",
+          "Phạm",
+          "Hanni",
+          "Phuong"
+        ],
         "answer": 0,
         "category": "artist",
         "explanation": "Hanni의 전이름은 Pham Hanni Thao입니다.",
+        "difficulty": "hard"
+      },
+      {
+        "id": "art037",
+        "question": "2025년 데뷔한 하이브 산하 빌리프랩 소속이자 'I-LAND 2'를 통해 결성된 걸그룹은?",
+        "options": [
+          "KATSEYE",
+          "izna",
+          "UNIS",
+          "ILLIT"
+        ],
+        "answer": 1,
+        "category": "artist",
+        "explanation": "izna는 Mnet 'I-LAND 2'를 통해 결성되어 2024년 말 데뷔한 그룹입니다.",
+        "difficulty": "medium"
+      },
+      {
+        "id": "art038",
+        "question": "전 FIFTY FIFTY 멤버인 새나, 시오, 아란이 재결성하여 2025년 데뷔한 그룹의 이름은?",
+        "options": [
+          "Ablume",
+          "RE-FIFTY",
+          "TRI-STAR",
+          "BLOOM"
+        ],
+        "answer": 0,
+        "category": "artist",
+        "explanation": "Saena, Sio, Aran은 Ablume이라는 이름으로 새롭게 출발했습니다.",
+        "difficulty": "medium"
+      },
+      {
+        "id": "art039",
+        "question": "2025년 데뷔한 다국적 걸그룹 'UDTT(우당탕탕 소녀단)'의 멤버 수는?",
+        "options": [
+          "4명",
+          "5명",
+          "6명",
+          "7명"
+        ],
+        "answer": 1,
+        "category": "artist",
+        "explanation": "UDTT는 리사코, 채희, 한나, 예진, 루유팅 5명으로 구성되어 있습니다.",
+        "difficulty": "hard"
+      },
+      {
+        "id": "art040",
+        "question": "SM엔터테인먼트가 2020년 에스파 이후 5년 만인 2025년에 선보인 신인 걸그룹은?",
+        "options": [
+          "Hearts2Hearts",
+          "Pinkblood",
+          "S-GIRLS",
+          "SM-NBG"
+        ],
+        "answer": 0,
+        "category": "artist",
+        "explanation": "SM은 2025년 차세대 걸그룹 Hearts2Hearts를 론칭했습니다.",
+        "difficulty": "medium"
+      },
+      {
+        "id": "art041",
+        "question": "izna의 멤버 중 'I-LAND 2' 파이널 1위로 선발된 멤버는?",
+        "options": [
+          "방지만",
+          "최정은",
+          "윤지윤",
+          "코코"
+        ],
+        "answer": 1,
+        "category": "artist",
+        "explanation": "최정은이 'I-LAND 2' 최종 1위를 차지했습니다.",
+        "difficulty": "hard"
+      },
+      {
+        "id": "art042",
+        "question": "2024년 SM엔터테인먼트에서 데뷔한 걸그룹은?",
+        "options": ["Hearts2Hearts", "ILLIT", "BABYMONSTER", "UNIS"],
+        "answer": 0,
+        "category": "artist",
+        "explanation": "Hearts2Hearts는 2024년 SM엔터테인먼트에서 데뷔한 신인 걸그룹입니다.",
+        "difficulty": "medium"
+      },
+      {
+        "id": "art043",
+        "question": "2024년 HYBE 산하 빌리프랩에서 데뷔한 걸그룹은?",
+        "options": ["ILLIT", "izna", "UNIS", "KATSEYE"],
+        "answer": 0,
+        "category": "artist",
+        "explanation": "ILLIT은 2024년 빌리프랩 소속으로 데뷔했습니다.",
+        "difficulty": "easy"
+      },
+      {
+        "id": "art044",
+        "question": "서바이벌 프로그램 '유니버스 티켓'을 통해 2024년 데뷔한 걸그룹은?",
+        "options": ["UNIS", "izna", "VVS", "IRIS"],
+        "answer": 0,
+        "category": "artist",
+        "explanation": "UNIS는 SBS '유니버스 티켓'을 통해 결성된 2024년 데뷔 그룹입니다.",
+        "difficulty": "medium"
+      },
+      {
+        "id": "art045",
+        "question": "2024년 글로벌 프로젝트로 데뷔한 하이브의 다국적 걸그룹은?",
+        "options": ["KATSEYE", "ILLIT", "UNIS", "izna"],
+        "answer": 0,
+        "category": "artist",
+        "explanation": "KATSEYE는 HYBE x Geffen Records의 글로벌 프로젝트 그룹입니다.",
+        "difficulty": "medium"
+      },
+      {
+        "id": "art046",
+        "question": "2024년 데뷔한 걸그룹 ILLIT의 데뷔곡은?",
+        "options": ["Magnetic", "Lucky Girl", "Spark", "Dream"],
+        "answer": 0,
+        "category": "artist",
+        "explanation": "ILLIT은 2024년 'Magnetic'으로 데뷔했습니다.",
+        "difficulty": "easy"
+      },
+      {
+        "id": "art047",
+        "question": "2024년 데뷔한 UNIS의 소속사는?",
+        "options": ["F&F Entertainment", "HYBE", "SM", "YG"],
+        "answer": 0,
+        "category": "artist",
+        "explanation": "UNIS는 F&F Entertainment 소속으로 데뷔했습니다.",
+        "difficulty": "hard"
+      },
+      {
+        "id": "art048",
+        "question": "KATSEYE가 데뷔한 연도는?",
+        "options": ["2023", "2024", "2025", "2026"],
+        "answer": 1,
+        "category": "artist",
+        "explanation": "KATSEYE는 2024년 글로벌 걸그룹으로 데뷔했습니다.",
+        "difficulty": "easy"
+      },
+      {
+        "id": "art049",
+        "question": "2024년 데뷔한 걸그룹 ILLIT의 소속 레이블은?",
+        "options": ["ADOR", "BELIFT LAB", "Source Music", "Pledis"],
+        "answer": 1,
+        "category": "artist",
+        "explanation": "ILLIT은 HYBE 산하 BELIFT LAB 소속입니다.",
+        "difficulty": "medium"
+      },
+      {
+        "id": "art050",
+        "question": "2024년 데뷔한 걸그룹 UNIS의 멤버 수는?",
+        "options": ["5명", "6명", "7명", "8명"],
+        "answer": 3,
+        "category": "artist",
+        "explanation": "UNIS는 8인조 걸그룹입니다.",
+        "difficulty": "medium"
+      },
+      {
+        "id": "art051",
+        "question": "2024년 데뷔한 글로벌 걸그룹 KATSEYE의 콘셉트는?",
+        "options": ["레트로", "글로벌 팝", "트로트", "힙합"],
+        "answer": 1,
+        "category": "artist",
+        "explanation": "KATSEYE는 글로벌 팝 시장을 겨냥한 걸그룹입니다.",
         "difficulty": "hard"
       }
     ],
@@ -333,7 +673,12 @@
       {
         "id": "song001",
         "question": "AESPA의 'Savage'는 언제 발매되었나?",
-        "options": ["2021", "2022", "2023", "2024"],
+        "options": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
         "answer": 0,
         "category": "song",
         "explanation": "'Savage'는 2021년 10월 발매되었습니다.",
@@ -342,7 +687,12 @@
       {
         "id": "song002",
         "question": "NewJeans의 대표곡 'Attention'은 언제 발매?",
-        "options": ["2021", "2022", "2023", "2024"],
+        "options": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'Attention'은 2022년 8월 1일 발매되었습니다.",
@@ -351,7 +701,12 @@
       {
         "id": "song003",
         "question": "IVE의 'I AM'은 언제 발매되었나?",
-        "options": ["2021", "2022", "2023", "2024"],
+        "options": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'I AM'은 2022년 12월 발매되었습니다.",
@@ -360,7 +715,12 @@
       {
         "id": "song004",
         "question": "Le Sserafim의 데뷔곡은?",
-        "options": ["Good Bones", "Fearless", "Antifragile", "Sour Grapes"],
+        "options": [
+          "Good Bones",
+          "Fearless",
+          "Antifragile",
+          "Sour Grapes"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'Fearless'가 Le Sserafim의 데뷔곡입니다.",
@@ -369,7 +729,12 @@
       {
         "id": "song005",
         "question": "STAYC의 'ASAP'은 언제 발매되었나?",
-        "options": ["2021", "2022", "2023", "2024"],
+        "options": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
         "answer": 0,
         "category": "song",
         "explanation": "'ASAP'은 2021년 6월 발매되었습니다.",
@@ -378,7 +743,12 @@
       {
         "id": "song006",
         "question": "NewJeans의 'Hype Boy'는 누가 피처링했나?",
-        "options": ["인피니트", "피처링 없음", "방탄소년단", "싸이"],
+        "options": [
+          "인피니트",
+          "피처링 없음",
+          "방탄소년단",
+          "싸이"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'Hype Boy'는 피처링 없이 NewJeans만의 곡입니다.",
@@ -387,7 +757,12 @@
       {
         "id": "song007",
         "question": "AESPA의 'Spicy'는 언제 발매되었나?",
-        "options": ["2022", "2023", "2024", "2025"],
+        "options": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'Spicy'는 2023년 5월 발매되었습니다.",
@@ -396,7 +771,12 @@
       {
         "id": "song008",
         "question": "IVE의 'Dumb Dumb'은 언제 발매되었나?",
-        "options": ["2022", "2023", "2024", "2025"],
+        "options": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'Dumb Dumb'은 2023년 1월 발매되었습니다.",
@@ -405,7 +785,12 @@
       {
         "id": "song009",
         "question": "NewJeans의 'OMG'는 언제 발매되었나?",
-        "options": ["2022", "2023", "2024", "2025"],
+        "options": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'OMG'는 2023년 4월 발매되었습니다.",
@@ -414,7 +799,12 @@
       {
         "id": "song010",
         "question": "Le Sserafim의 'Unforgiven'은 언제 발매되었나?",
-        "options": ["2022", "2023", "2024", "2025"],
+        "options": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'Unforgiven'은 2023년 4월 발매되었습니다.",
@@ -423,7 +813,12 @@
       {
         "id": "song011",
         "question": "STAYC의 'Stereotype'은 언제 발매되었나?",
-        "options": ["2021", "2022", "2023", "2024"],
+        "options": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'Stereotype'은 2022년 2월 발매되었습니다.",
@@ -432,7 +827,12 @@
       {
         "id": "song012",
         "question": "AESPA의 첫 한국 정규앨범 타이틀곡은?",
-        "options": ["Black Mamba", "Spicy", "Savage", "Dreams Come True"],
+        "options": [
+          "Black Mamba",
+          "Spicy",
+          "Savage",
+          "Dreams Come True"
+        ],
         "answer": 0,
         "category": "song",
         "explanation": "'Black Mamba'가 AESPA의 첫 한국 정규앨범 타이틀곡입니다.",
@@ -441,7 +841,12 @@
       {
         "id": "song013",
         "question": "NewJeans의 'Super Shy'는 언제 발매되었나?",
-        "options": ["2022", "2023", "2024", "2025"],
+        "options": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
         "answer": 2,
         "category": "song",
         "explanation": "'Super Shy'는 2024년 1월 발매되었습니다.",
@@ -450,7 +855,12 @@
       {
         "id": "song014",
         "question": "IVE의 'Magnetic'은 언제 발매되었나?",
-        "options": ["2022", "2023", "2024", "2025"],
+        "options": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
         "answer": 2,
         "category": "song",
         "explanation": "'Magnetic'은 2024년 1월 발매되었습니다.",
@@ -459,7 +869,12 @@
       {
         "id": "song015",
         "question": "Le Sserafim의 'Good Bones'는 언제 발매되었나?",
-        "options": ["2022", "2023", "2024", "2025"],
+        "options": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
         "answer": 2,
         "category": "song",
         "explanation": "'Good Bones'는 2024년 발매되었습니다.",
@@ -468,7 +883,12 @@
       {
         "id": "song016",
         "question": "BABYMONSTER의 'SHEESH'는 언제 발매되었나?",
-        "options": ["2022", "2023", "2024", "2025"],
+        "options": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'SHEESH'는 2023년 11월 발매되었습니다.",
@@ -477,7 +897,12 @@
       {
         "id": "song017",
         "question": "FIFTY FIFTY의 '쿠삐'는 언제 발매되었나?",
-        "options": ["2021", "2022", "2023", "2024"],
+        "options": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'쿠삐'는 2022년 10월 발매되었습니다.",
@@ -486,7 +911,12 @@
       {
         "id": "song018",
         "question": "LOONA의 '목걸이'는 언제 발매되었나?",
-        "options": ["2020", "2021", "2022", "2023"],
+        "options": [
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
         "answer": 0,
         "category": "song",
         "explanation": "'목걸이'는 2020년 11월 발매되었습니다.",
@@ -495,7 +925,12 @@
       {
         "id": "song019",
         "question": "AESPA의 'Armageddon'은 언제 발매되었나?",
-        "options": ["2023", "2024", "2025", "2026"],
+        "options": [
+          "2023",
+          "2024",
+          "2025",
+          "2026"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'Armageddon'은 2024년 발매되었습니다.",
@@ -504,7 +939,12 @@
       {
         "id": "song020",
         "question": "NewJeans의 첫 정규앨범 타이틀곡은?",
-        "options": ["Attention", "Cookie", "Left and Right", "Super Shy"],
+        "options": [
+          "Attention",
+          "Cookie",
+          "Left and Right",
+          "Super Shy"
+        ],
         "answer": 2,
         "category": "song",
         "explanation": "'Left and Right'가 NewJeans의 첫 정규앨범 타이틀곡입니다.",
@@ -513,7 +953,12 @@
       {
         "id": "song021",
         "question": "IVE의 'Either Way'는 언제 발매되었나?",
-        "options": ["2022", "2023", "2024", "2025"],
+        "options": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
         "answer": 2,
         "category": "song",
         "explanation": "'Either Way'는 2024년 발매되었습니다.",
@@ -522,7 +967,12 @@
       {
         "id": "song022",
         "question": "Le Sserafim의 'Easy'는 언제 발매되었나?",
-        "options": ["2023", "2024", "2025", "2026"],
+        "options": [
+          "2023",
+          "2024",
+          "2025",
+          "2026"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'Easy'는 2024년 발매되었습니다.",
@@ -531,7 +981,12 @@
       {
         "id": "song023",
         "question": "STAYC의 'RUN2U'는 언제 발매되었나?",
-        "options": ["2021", "2022", "2023", "2024"],
+        "options": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
         "answer": 2,
         "category": "song",
         "explanation": "'RUN2U'는 2023년 4월 발매되었습니다.",
@@ -540,7 +995,12 @@
       {
         "id": "song024",
         "question": "BABYMONSTER의 'Stuck in the Middle'은 언제 발매되었나?",
-        "options": ["2023", "2024", "2025", "2026"],
+        "options": [
+          "2023",
+          "2024",
+          "2025",
+          "2026"
+        ],
         "answer": 0,
         "category": "song",
         "explanation": "'Stuck in the Middle'은 2023년 발매되었습니다.",
@@ -549,7 +1009,12 @@
       {
         "id": "song025",
         "question": "NewJeans의 'Cookie'는 언제 발매되었나?",
-        "options": ["2022", "2023", "2024", "2025"],
+        "options": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'Cookie'는 2023년 7월 발매되었습니다.",
@@ -558,7 +1023,12 @@
       {
         "id": "song026",
         "question": "AESPA의 'Drama'는 언제 발매되었나?",
-        "options": ["2023", "2024", "2025", "2026"],
+        "options": [
+          "2023",
+          "2024",
+          "2025",
+          "2026"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'Drama'는 2024년 발매되었습니다.",
@@ -567,7 +1037,12 @@
       {
         "id": "song027",
         "question": "IVE의 'Kitsch'는 언제 발매되었나?",
-        "options": ["2022", "2023", "2024", "2025"],
+        "options": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'Kitsch'는 2023년 8월 발매되었습니다.",
@@ -576,7 +1051,12 @@
       {
         "id": "song028",
         "question": "Le Sserafim의 'Sour Grapes'는 언제 발매되었나?",
-        "options": ["2022", "2023", "2024", "2025"],
+        "options": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
         "answer": 2,
         "category": "song",
         "explanation": "'Sour Grapes'는 2024년 발매되었습니다.",
@@ -585,7 +1065,12 @@
       {
         "id": "song029",
         "question": "STAYC의 'Beautiful Monster'는 언제 발매되었나?",
-        "options": ["2022", "2023", "2024", "2025"],
+        "options": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'Beautiful Monster'는 2023년 발매되었습니다.",
@@ -594,7 +1079,12 @@
       {
         "id": "song030",
         "question": "NewJeans의 'Get Up'은 언제 발매되었나?",
-        "options": ["2023", "2024", "2025", "2026"],
+        "options": [
+          "2023",
+          "2024",
+          "2025",
+          "2026"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'Get Up'은 2024년 발매되었습니다.",
@@ -603,7 +1093,12 @@
       {
         "id": "song031",
         "question": "AESPA의 'Vivid'는 언제 발매되었나?",
-        "options": ["2023", "2024", "2025", "2026"],
+        "options": [
+          "2023",
+          "2024",
+          "2025",
+          "2026"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'Vivid'는 2024년 발매되었습니다.",
@@ -612,7 +1107,12 @@
       {
         "id": "song032",
         "question": "IVE의 'Heya'는 언제 발매되었나?",
-        "options": ["2023", "2024", "2025", "2026"],
+        "options": [
+          "2023",
+          "2024",
+          "2025",
+          "2026"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "'Heya'는 2024년 발매되었습니다.",
@@ -621,7 +1121,12 @@
       {
         "id": "song033",
         "question": "Le Sserafim의 'Eve, Psyche & The Blakbird'는 언제 발매되었나?",
-        "options": ["2022", "2023", "2024", "2025"],
+        "options": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
         "answer": 2,
         "category": "song",
         "explanation": "'Eve, Psyche & The Blakbird'는 2024년 발매되었습니다.",
@@ -630,7 +1135,12 @@
       {
         "id": "song034",
         "question": "BABYMONSTER의 'Sheesh'의 뮤직비디오 감독은?",
-        "options": ["하나몬", "권혁", "한선화", "권오중"],
+        "options": [
+          "하나몬",
+          "권혁",
+          "한선화",
+          "권오중"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "BABYMONSTER 'Sheesh'는 권혁 감독이 연출했습니다.",
@@ -639,7 +1149,12 @@
       {
         "id": "song035",
         "question": "NewJeans의 '대기' 뮤직비디오 배우는?",
-        "options": ["이제훈", "김재욱", "조성우", "박정민"],
+        "options": [
+          "이제훈",
+          "김재욱",
+          "조성우",
+          "박정민"
+        ],
         "answer": 0,
         "category": "song",
         "explanation": "NewJeans 'Attention' 뮤직비디오에는 이제훈이 출연했습니다.",
@@ -648,7 +1163,12 @@
       {
         "id": "song036",
         "question": "AESPA의 'Savage' 뮤직비디오 배우는?",
-        "options": ["김우빈", "박서준", "이동욱", "조성우"],
+        "options": [
+          "김우빈",
+          "박서준",
+          "이동욱",
+          "조성우"
+        ],
         "answer": 1,
         "category": "song",
         "explanation": "AESPA 'Savage'에는 배우 박서준이 출연했습니다.",
@@ -657,10 +1177,85 @@
       {
         "id": "song037",
         "question": "STAYC의 'Run2You' 뮤직비디오 배우는?",
-        "options": ["이준호", "남도혁", "임시완", "이성욱"],
+        "options": [
+          "이준호",
+          "남도혁",
+          "임시완",
+          "이성욱"
+        ],
         "answer": 2,
         "category": "song",
         "explanation": "STAYC 'RUN2U'에는 배우 임시완이 출연했습니다.",
+        "difficulty": "hard"
+      },
+      {
+        "id": "song038",
+        "question": "2025년 데뷔한 izna의 데뷔 타이틀곡 제목은?",
+        "options": [
+          "N/a",
+          "IZNA",
+          "FAKE IT",
+          "DRIP"
+        ],
+        "answer": 1,
+        "category": "song",
+        "explanation": "izna의 데뷔곡은 그룹명과 같은 'IZNA'입니다.",
+        "difficulty": "medium"
+      },
+      {
+        "id": "song039",
+        "question": "Ablume의 2025년 데뷔 타이틀곡 제목은?",
+        "options": [
+          "Echo",
+          "Voice",
+          "Signal",
+          "Flower"
+        ],
+        "answer": 0,
+        "category": "song",
+        "explanation": "Ablume은 2025년 5월 'Echo'로 데뷔했습니다.",
+        "difficulty": "hard"
+      },
+      {
+        "id": "song040",
+        "question": "2025년 데뷔한 걸그룹 VVS의 데뷔곡 제목은?",
+        "options": [
+          "Coffee",
+          "Tea",
+          "Juice",
+          "Milk"
+        ],
+        "answer": 1,
+        "category": "song",
+        "explanation": "VVS는 디지털 싱글 'Tea'로 데뷔했습니다.",
+        "difficulty": "hard"
+      },
+      {
+        "id": "song041",
+        "question": "LeanBranding에서 론칭한 걸그룹 KIIRAS의 데뷔곡은?",
+        "options": [
+          "KILL MA BO$$",
+          "LOVE ME",
+          "DANCE WITH me",
+          "SHOUT"
+        ],
+        "answer": 0,
+        "category": "song",
+        "explanation": "KIIRAS의 데뷔곡은 'KILL MA BO$$'입니다.",
+        "difficulty": "hard"
+      },
+      {
+        "id": "song042",
+        "question": "2025년 데뷔한 걸그룹 IRIS의 데뷔곡 제목은?",
+        "options": [
+          "Fly",
+          "Wings",
+          "Sky",
+          "Dream"
+        ],
+        "answer": 1,
+        "category": "song",
+        "explanation": "IRIS는 'Wings'라는 곡으로 데뷔했습니다.",
         "difficulty": "hard"
       }
     ],
@@ -668,7 +1263,12 @@
       {
         "id": "gen001",
         "question": "AESPA 팬 이름은?",
-        "options": ["ONCE", "NAVIES", "MY", "MIDZY"],
+        "options": [
+          "ONCE",
+          "NAVIES",
+          "MY",
+          "MIDZY"
+        ],
         "answer": 2,
         "category": "general",
         "explanation": "AESPA의 팬덤명은 MY입니다.",
@@ -677,7 +1277,12 @@
       {
         "id": "gen002",
         "question": "NewJeans 팬 이름은?",
-        "options": ["NEWJEANS", "BUNNIES", "DIAMONDS", "JEWELS"],
+        "options": [
+          "NEWJEANS",
+          "BUNNIES",
+          "DIAMONDS",
+          "JEWELS"
+        ],
         "answer": 2,
         "category": "general",
         "explanation": "NewJeans의 팬덤명은 DIAMONDS입니다.",
@@ -686,7 +1291,12 @@
       {
         "id": "gen003",
         "question": "IVE 팬 이름은?",
-        "options": ["IVE", "DIVERS", "IVES", "STARS"],
+        "options": [
+          "IVE",
+          "DIVERS",
+          "IVES",
+          "STARS"
+        ],
         "answer": 1,
         "category": "general",
         "explanation": "IVE의 팬덤명은 DIVERS입니다.",
@@ -695,7 +1305,12 @@
       {
         "id": "gen004",
         "question": "Le Sserafim 팬 이름은?",
-        "options": ["HYBE", "LOONA", "ORBITS", "SWIFTIE"],
+        "options": [
+          "HYBE",
+          "LOONA",
+          "ORBITS",
+          "SWIFTIE"
+        ],
         "answer": 3,
         "category": "general",
         "explanation": "Le Sserafim의 팬덤명은 SWIFTIE입니다.",
@@ -704,7 +1319,12 @@
       {
         "id": "gen005",
         "question": "STAYC 팬 이름은?",
-        "options": ["STAY", "TWICE", "ARMY", "CARAT"],
+        "options": [
+          "STAY",
+          "TWICE",
+          "ARMY",
+          "CARAT"
+        ],
         "answer": 0,
         "category": "general",
         "explanation": "STAYC의 팬덤명은 STAY입니다.",
@@ -713,7 +1333,12 @@
       {
         "id": "gen006",
         "question": "AESPA가 속한 음반사는?",
-        "options": ["JYP", "SM", "YG", "HYBE"],
+        "options": [
+          "JYP",
+          "SM",
+          "YG",
+          "HYBE"
+        ],
         "answer": 1,
         "category": "general",
         "explanation": "AESPA는 SM엔터테인먼트 소속입니다.",
@@ -722,7 +1347,12 @@
       {
         "id": "gen007",
         "question": "NewJeans가 속한 음반사는?",
-        "options": ["ADOR", "Starship", "Attrakt", "YG"],
+        "options": [
+          "ADOR",
+          "Starship",
+          "Attrakt",
+          "YG"
+        ],
         "answer": 0,
         "category": "general",
         "explanation": "NewJeans는 HYBE 산하 ADOR 소속입니다.",
@@ -731,7 +1361,12 @@
       {
         "id": "gen008",
         "question": "Le Sserafim의 일본인 멤버는?",
-        "options": ["Chaewon", "Yunjin", "Kazuha", "Sakura"],
+        "options": [
+          "Chaewon",
+          "Yunjin",
+          "Kazuha",
+          "Sakura"
+        ],
         "answer": 2,
         "category": "general",
         "explanation": "Kazuha와 Sakura가 일본 출신 멤버입니다.",
@@ -740,7 +1375,12 @@
       {
         "id": "gen009",
         "question": "NewJeans의 호주 출신 멤버는?",
-        "options": ["Hanni", "Danielle", "Hebe", "Hyein"],
+        "options": [
+          "Hanni",
+          "Danielle",
+          "Hebe",
+          "Hyein"
+        ],
         "answer": 1,
         "category": "general",
         "explanation": "Danielle이 호주 출신의 멤버입니다.",
@@ -749,7 +1389,12 @@
       {
         "id": "gen010",
         "question": "AESPA의 가장 나이 많은 멤버는?",
-        "options": ["Karina", "Ningning", "Winter", "Giselle"],
+        "options": [
+          "Karina",
+          "Ningning",
+          "Winter",
+          "Giselle"
+        ],
         "answer": 1,
         "category": "general",
         "explanation": "Ningning이 AESPA의 가장 나이 많은 멤버입니다.",
@@ -758,7 +1403,12 @@
       {
         "id": "gen011",
         "question": "IVE의 활동 지역은?",
-        "options": ["한국", "일본", "중국", "태국"],
+        "options": [
+          "한국",
+          "일본",
+          "중국",
+          "태국"
+        ],
         "answer": 0,
         "category": "general",
         "explanation": "IVE는 한국 가수 그룹입니다.",
@@ -767,7 +1417,12 @@
       {
         "id": "gen012",
         "question": "Le Sserafim의 출신 기획사는?",
-        "options": ["Big Hit", "Source Music", "Pledis", "Hybe"],
+        "options": [
+          "Big Hit",
+          "Source Music",
+          "Pledis",
+          "Hybe"
+        ],
         "answer": 1,
         "category": "general",
         "explanation": "Le Sserafim은 HYBE 산하 Source Music 소속입니다.",
@@ -776,7 +1431,12 @@
       {
         "id": "gen013",
         "question": "BABYMONSTER 팬 이름은?",
-        "options": ["BLINKS", "NEST", "MONSTER", "YG"],
+        "options": [
+          "BLINKS",
+          "NEST",
+          "MONSTER",
+          "YG"
+        ],
         "answer": 1,
         "category": "general",
         "explanation": "BABYMONSTER의 팬덤명은 NEST입니다.",
@@ -785,7 +1445,12 @@
       {
         "id": "gen014",
         "question": "FIFTY FIFTY 팬 이름은?",
-        "options": ["FIFTY", "HALF", "LOVER", "FRIEND"],
+        "options": [
+          "FIFTY",
+          "HALF",
+          "LOVER",
+          "FRIEND"
+        ],
         "answer": 1,
         "category": "general",
         "explanation": "FIFTY FIFTY의 팬덤명은 HALF입니다.",
@@ -794,7 +1459,12 @@
       {
         "id": "gen015",
         "question": "LOONA 팬 이름은?",
-        "options": ["ORBIT", "ORBITS", "LUNAR", "MOON"],
+        "options": [
+          "ORBIT",
+          "ORBITS",
+          "LUNAR",
+          "MOON"
+        ],
         "answer": 1,
         "category": "general",
         "explanation": "LOONA의 팬덤명은 ORBITS입니다.",
@@ -803,7 +1473,12 @@
       {
         "id": "gen016",
         "question": "NewJeans는 어느 레이블의 첫 걸그룹인가?",
-        "options": ["Big Hit", "ADOR", "Source Music", "Pledis"],
+        "options": [
+          "Big Hit",
+          "ADOR",
+          "Source Music",
+          "Pledis"
+        ],
         "answer": 1,
         "category": "general",
         "explanation": "NewJeans는 HYBE 산하 ADOR의 첫 걸그룹입니다.",
@@ -812,7 +1487,12 @@
       {
         "id": "gen017",
         "question": "IVE의 최고 나이 멤버는?",
-        "options": ["Ahn Yujin", "Jang Wonyoung", "Rei", "Leeseo"],
+        "options": [
+          "Ahn Yujin",
+          "Jang Wonyoung",
+          "Rei",
+          "Leeseo"
+        ],
         "answer": 0,
         "category": "general",
         "explanation": "Ahn Yujin이 IVE의 가장 나이 많은 멤버입니다.",
@@ -821,7 +1501,12 @@
       {
         "id": "gen018",
         "question": "Le Sserafim 중 HUG YOUR SOUL 앨범에 포함된 곡은?",
-        "options": ["Fearless", "Antifragile", "Unforgiven", "Sour Grapes"],
+        "options": [
+          "Fearless",
+          "Antifragile",
+          "Unforgiven",
+          "Sour Grapes"
+        ],
         "answer": 2,
         "category": "general",
         "explanation": "'Unforgiven'은 Le Sserafim의 주요 앨범곡입니다.",
@@ -830,7 +1515,12 @@
       {
         "id": "gen019",
         "question": "AESPA의 공식 어플리케이션 이름은?",
-        "options": ["MY AESPA", "AESPA+", "COSMO", "DINGO"],
+        "options": [
+          "MY AESPA",
+          "AESPA+",
+          "COSMO",
+          "DINGO"
+        ],
         "answer": 0,
         "category": "general",
         "explanation": "AESPA의 공식 팬 앱은 MY AESPA입니다.",
@@ -839,7 +1529,12 @@
       {
         "id": "gen020",
         "question": "NewJeans의 컨셉은?",
-        "options": ["Hype", "Fresh", "Girl Next Door", "Elegance"],
+        "options": [
+          "Hype",
+          "Fresh",
+          "Girl Next Door",
+          "Elegance"
+        ],
         "answer": 2,
         "category": "general",
         "explanation": "NewJeans는 '소녀의 감성'을 표현하는 Girl Next Door 컨셉입니다.",
@@ -848,7 +1543,12 @@
       {
         "id": "gen021",
         "question": "IVE의 데뷔 앨범 이름은?",
-        "options": ["I AM", "Either Way", "I've", "Divine"],
+        "options": [
+          "I AM",
+          "Either Way",
+          "I've",
+          "Divine"
+        ],
         "answer": 2,
         "category": "general",
         "explanation": "IVE의 데뷔 앨범 이름은 'I've'입니다.",
@@ -857,7 +1557,12 @@
       {
         "id": "gen022",
         "question": "Le Sserafim의 데뷔 앨범 이름은?",
-        "options": ["Fearless", "Source", "Wings", "New World"],
+        "options": [
+          "Fearless",
+          "Source",
+          "Wings",
+          "New World"
+        ],
         "answer": 0,
         "category": "general",
         "explanation": "Le Sserafim의 데뷔 앨범 이름은 'Fearless'입니다.",
@@ -866,7 +1571,12 @@
       {
         "id": "gen023",
         "question": "STAYC의 데뷔 싱글 이름은?",
-        "options": ["ASAP", "Stereotype", "So Bad", "Mix"],
+        "options": [
+          "ASAP",
+          "Stereotype",
+          "So Bad",
+          "Mix"
+        ],
         "answer": 0,
         "category": "general",
         "explanation": "STAYC의 데뷔 싱글은 'ASAP'입니다.",
@@ -875,7 +1585,12 @@
       {
         "id": "gen024",
         "question": "AESPA의 한글명은?",
-        "options": ["에이핑크", "에스파", "에스파", "에이팍"],
+        "options": [
+          "에이핑크",
+          "에스파",
+          "에스파",
+          "에이팍"
+        ],
         "answer": 1,
         "category": "general",
         "explanation": "AESPA의 한글명은 '에스파'입니다.",
@@ -884,7 +1599,12 @@
       {
         "id": "gen025",
         "question": "NewJeans의 한글명은?",
-        "options": ["뉴진스", "뉴징스", "뉴진", "진스"],
+        "options": [
+          "뉴진스",
+          "뉴징스",
+          "뉴진",
+          "진스"
+        ],
         "answer": 0,
         "category": "general",
         "explanation": "NewJeans의 한글명은 '뉴진스'입니다.",
@@ -893,7 +1613,12 @@
       {
         "id": "gen026",
         "question": "AESPA가 처음 수상한 대상은?",
-        "options": ["Golden Disc", "Melon Music Awards", "Seoul Music Awards", "MMA"],
+        "options": [
+          "Golden Disc",
+          "Melon Music Awards",
+          "Seoul Music Awards",
+          "MMA"
+        ],
         "answer": 3,
         "category": "general",
         "explanation": "AESPA는 2021 MMA에서 첫 수상을 했습니다.",
@@ -902,7 +1627,12 @@
       {
         "id": "gen027",
         "question": "NewJeans가 첫 음원 차트 1위를 차지한 곡은?",
-        "options": ["Attention", "Hype Boy", "Cookie", "Super Shy"],
+        "options": [
+          "Attention",
+          "Hype Boy",
+          "Cookie",
+          "Super Shy"
+        ],
         "answer": 1,
         "category": "general",
         "explanation": "'Hype Boy'가 NewJeans의 첫 멜론 차트 1위곡입니다.",
@@ -911,7 +1641,12 @@
       {
         "id": "gen028",
         "question": "IVE의 첫 음악방송 1위 곡은?",
-        "options": ["I AM", "I've", "Dumb Dumb", "Either Way"],
+        "options": [
+          "I AM",
+          "I've",
+          "Dumb Dumb",
+          "Either Way"
+        ],
         "answer": 0,
         "category": "general",
         "explanation": "'I AM'이 IVE의 첫 음악방송 1위곡입니다.",
@@ -920,7 +1655,12 @@
       {
         "id": "gen029",
         "question": "Le Sserafim의 YouTube 구독자 수는?",
-        "options": ["100만 이상", "500만 이상", "1000만 이상", "1500만 이상"],
+        "options": [
+          "100만 이상",
+          "500만 이상",
+          "1000만 이상",
+          "1500만 이상"
+        ],
         "answer": 1,
         "category": "general",
         "explanation": "Le Sserafim의 YouTube 구독자 수는 500만을 넘습니다.",
@@ -929,7 +1669,12 @@
       {
         "id": "gen030",
         "question": "STAYC의 멤버 구성은?",
-        "options": ["5명", "6명", "7명", "8명"],
+        "options": [
+          "5명",
+          "6명",
+          "7명",
+          "8명"
+        ],
         "answer": 1,
         "category": "general",
         "explanation": "STAYC는 6명의 멤버로 구성되어 있습니다.",
@@ -938,7 +1683,12 @@
       {
         "id": "gen031",
         "question": "NewJeans의 최연소 멤버는?",
-        "options": ["Hanni", "Danielle", "Hyein", "Hebe"],
+        "options": [
+          "Hanni",
+          "Danielle",
+          "Hyein",
+          "Hebe"
+        ],
         "answer": 2,
         "category": "general",
         "explanation": "Hyein이 NewJeans의 최연소 멤버입니다.",
@@ -947,7 +1697,12 @@
       {
         "id": "gen032",
         "question": "AESPA의 'Black Mamba' 뮤직비디오는?",
-        "options": ["미래과학", "우주과학", "판타지", "공상과학"],
+        "options": [
+          "미래과학",
+          "우주과학",
+          "판타지",
+          "공상과학"
+        ],
         "answer": 3,
         "category": "general",
         "explanation": "'Black Mamba' 뮤직비디오는 공상과학 컨셉입니다.",
@@ -956,7 +1711,12 @@
       {
         "id": "gen033",
         "question": "2020년 이후 데뷔한 여자 걸그룹이 아닌 것은?",
-        "options": ["AESPA", "NewJeans", "TWICE", "IVE"],
+        "options": [
+          "AESPA",
+          "NewJeans",
+          "TWICE",
+          "IVE"
+        ],
         "answer": 2,
         "category": "general",
         "explanation": "TWICE는 2015년 데뷔로 2020년 이전에 데뷔했습니다.",
@@ -965,7 +1725,12 @@
       {
         "id": "gen034",
         "question": "AESPA의 'Spicy' 뮤직비디오 컨셉은?",
-        "options": ["판타지", "학교", "스파이", "미래"],
+        "options": [
+          "판타지",
+          "학교",
+          "스파이",
+          "미래"
+        ],
         "answer": 2,
         "category": "general",
         "explanation": "AESPA 'Spicy'는 스파이 액션 컨셉의 뮤직비디오입니다.",
@@ -974,7 +1739,12 @@
       {
         "id": "gen035",
         "question": "NewJeans 멤버 Hanni, Danielle, Hyein의 국적은?",
-        "options": ["모두 호주", "호주, 호주, 한국", "호주, 미국, 한국", "호주, 호주, 미국"],
+        "options": [
+          "모두 호주",
+          "호주, 호주, 한국",
+          "호주, 미국, 한국",
+          "호주, 호주, 미국"
+        ],
         "answer": 1,
         "category": "general",
         "explanation": "Hanni와 Danielle은 호주 출신, Hyein은 한국인입니다.",
@@ -983,7 +1753,12 @@
       {
         "id": "gen036",
         "question": "BABYMONSTER의 팬덤명은?",
-        "options": ["BLINKS", "NEST", "MONSTER", "YG"],
+        "options": [
+          "BLINKS",
+          "NEST",
+          "MONSTER",
+          "YG"
+        ],
         "answer": 1,
         "category": "general",
         "explanation": "BABYMONSTER의 팬덤명은 NEST입니다.",
@@ -992,7 +1767,12 @@
       {
         "id": "gen037",
         "question": "AESPA의 리더 닝닝의 국적은?",
-        "options": ["한국", "중국", "홍콩", "대만"],
+        "options": [
+          "한국",
+          "중국",
+          "홍콩",
+          "대만"
+        ],
         "answer": 1,
         "category": "general",
         "explanation": "닝닝은 중국 출신입니다.",
