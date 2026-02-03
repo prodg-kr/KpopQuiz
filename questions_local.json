@@ -1,0 +1,414 @@
+{
+  "version": "2.0.0",
+  "language": "ja",
+  "lastUpdated": "2026-01-17",
+  "totalQuestions": 50,
+  "categories": {
+    "artist": [
+      {
+        "id": "art001",
+        "question": "BTSのリーダーは誰ですか?",
+        "options": ["RM", "ジン", "シュガ", "J-HOPE"],
+        "answer": 0,
+        "explanation": "RM(キム・ナムジュン)はBTSのリーダーでありメインラッパーです。",
+        "difficulty": "easy"
+      },
+      {
+        "id": "art002",
+        "question": "BLACKPINKのメインボーカルは?",
+        "options": ["ジェニー", "ロゼ", "ジス", "リサ"],
+        "answer": 1,
+        "explanation": "ロゼはBLACKPINKのメインボーカルを担当しています。",
+        "difficulty": "easy"
+      },
+      {
+        "id": "art003",
+        "question": "NewJeansの末っ子メンバーは?",
+        "options": ["ミンジ", "ハニ", "ヘイン", "ヘリン"],
+        "answer": 2,
+        "explanation": "ヘインは2008年生まれでNewJeansの末っ子です。",
+        "difficulty": "easy"
+      },
+      {
+        "id": "art004",
+        "question": "TWICEは何人のメンバーで構成されていますか?",
+        "options": ["7人", "9人", "8人", "10人"],
+        "answer": 1,
+        "explanation": "TWICEは9人のメンバーで構成されています。",
+        "difficulty": "easy"
+      },
+      {
+        "id": "art005",
+        "question": "IVEのチャン・ウォニョンの出身グループは?",
+        "options": ["Kep1er", "IZ*ONE", "fromis_9", "Weki Meki"],
+        "answer": 1,
+        "explanation": "チャン・ウォニョンはIZ*ONE出身でセンターを担当していました。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "art006",
+        "question": "Stray Kidsのリーダーは誰ですか?",
+        "options": ["리노", "バンチャン", "ヒョンジン", "ハン"],
+        "answer": 1,
+        "explanation": "バンチャンはStray Kidsのリーダーでありプロデューサーです。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "art007",
+        "question": "SEVENTEENは何人のメンバーで構成されていますか?",
+        "options": ["13人", "17人", "12人", "14人"],
+        "answer": 0,
+        "explanation": "SEVENTEENは13人のメンバーで構成されています。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "art008",
+        "question": "Red Velvetの末っ子メンバーは?",
+        "options": ["イェリ", "ジョイ", "アイリーン", "スルギ"],
+        "answer": 0,
+        "explanation": "イェリは1999年生まれでRed Velvetの末っ子です。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "art009",
+        "question": "aespaの世界観で仮想メンバーを指す用語は?",
+        "options": ["AI", "ae", "META", "SYNK"],
+        "answer": 1,
+        "explanation": "aespaは各メンバーに'ae-メンバー名'と呼ばれるアバターがいます。",
+        "difficulty": "hard"
+      },
+      {
+        "id": "art010",
+        "question": "(G)I-DLEのリーダーは誰ですか?",
+        "options": ["ミヨン", "ソヨン", "ウギ", "ミンニ"],
+        "answer": 1,
+        "explanation": "ソヨンは(G)I-DLEのリーダーでありメインプロデューサーです。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "art011",
+        "question": "EXOの元の活動体制は?",
+        "options": ["EXO-KとEXO-M", "EXO-SeoulとEXO-L", "EXO-1とEXO-2", "単一グループ"],
+        "answer": 0,
+        "explanation": "EXOは初期、韓国活動のEXO-Kと中国活動のEXO-Mに分かれて活動していました。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "art012",
+        "question": "TXTのグループ名のフルネームは?",
+        "options": ["Tomorrow X Together", "The X Together", "Tomorrow By Together", "The X Times"],
+        "answer": 0,
+        "explanation": "TXTは'Tomorrow X Together'の略称です。",
+        "difficulty": "easy"
+      },
+      {
+        "id": "art013",
+        "question": "ITZYのリーダーは誰ですか?",
+        "options": ["イェジ", "リア", "リュジン", "チェリョン"],
+        "answer": 0,
+        "explanation": "イェジはITZYのリーダーです。",
+        "difficulty": "easy"
+      },
+      {
+        "id": "art014",
+        "question": "LE SSERAFIMのカズハの前職は?",
+        "options": ["モデル", "バレリーナ", "フィギュアスケーター", "体操選手"],
+        "answer": 1,
+        "explanation": "カズハはオランダ国立バレエ学校出身のバレリーナです。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "art015",
+        "question": "ENHYPENを誕生させたサバイバル番組は?",
+        "options": ["Produce X 101", "I-LAND", "Boys Planet", "Produce 101 Japan"],
+        "answer": 1,
+        "explanation": "ENHYPENはMnetの'I-LAND'を通じて結成されました。",
+        "difficulty": "easy"
+      }
+    ],
+    "song": [
+      {
+        "id": "sng001",
+        "question": "BTSの'Butter'はいつ発表されましたか?",
+        "options": ["2020年", "2021年", "2022年", "2023年"],
+        "answer": 1,
+        "explanation": "'Butter'は2021年5月に発表され、ビルボードチャートを席巻しました。",
+        "difficulty": "easy"
+      },
+      {
+        "id": "sng002",
+        "question": "NewJeansのデビュー曲として知られている曲は?",
+        "options": ["Ditto", "Hype Boy", "Attention", "Super Shy"],
+        "answer": 2,
+        "explanation": "'Attention'は2022年7月に発売されたNewJeansのデビューシングルです。",
+        "difficulty": "easy"
+      },
+      {
+        "id": "sng003",
+        "question": "IVEの'After LIKE'はどの曲をサンプリングしましたか?",
+        "options": ["I Will Survive", "Gloria", "September", "Boogie Wonderland"],
+        "answer": 0,
+        "explanation": "'After LIKE'はGloria Gaynorの'I Will Survive'をサンプリングしました。",
+        "difficulty": "hard"
+      },
+      {
+        "id": "sng004",
+        "question": "BLACKPINKの'Pink Venom'はいつ発表されましたか?",
+        "options": ["2020年", "2021年", "2022年", "2023年"],
+        "answer": 2,
+        "explanation": "'Pink Venom'は2022年8月に発表されました。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "sng005",
+        "question": "Stray Kidsの'S-Class'はどのアルバムのタイトル曲ですか?",
+        "options": ["MAXIDENT", "5-STAR", "ODDINARY", "NOEASY"],
+        "answer": 1,
+        "explanation": "'S-Class'は2023年正規3集'5-STAR'のタイトル曲です。",
+        "difficulty": "hard"
+      },
+      {
+        "id": "sng006",
+        "question": "TWICEの初の英語シングルは?",
+        "options": ["I CAN’T STOP ME", "The Feels", "MOONLIGHT SUNRISE", "CRY FOR ME"],
+        "answer": 1,
+        "explanation": "'The Feels'は2021年発表のTWICE初の英語シングルです。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "sng007",
+        "question": "aespaの'Spicy'はどのアルバム収録曲ですか?",
+        "options": ["Savage", "Girls", "MY WORLD", "Drama"],
+        "answer": 2,
+        "explanation": "'Spicy'は2023年ミニ3集'MY WORLD'のタイトル曲です。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "sng008",
+        "question": "(G)I-DLEの'Nxde'でオマージュした人物は?",
+        "options": ["マドンナ", "マリリン・モンロー", "オードリー・ヘプバーン", "グレース・ケリー"],
+        "answer": 1,
+        "explanation": "'Nxde'はマリリン・モンローをオマージュしたミュージックビデオで話題になりました。",
+        "difficulty": "hard"
+      },
+      {
+        "id": "sng009",
+        "question": "LE SSERAFIMの'ANTIFRAGILE'の意味は?",
+        "options": ["反抗的な", "壊れない", "逆境で強くなる", "恐れない"],
+        "answer": 2,
+        "explanation": "'ANTIFRAGILE'は'逆境で強くなる'という意味の経済学用語です。",
+        "difficulty": "hard"
+      },
+      {
+        "id": "sng010",
+        "question": "TXT의 'Sugar Rush Ride'는 어느 앨범 수록곡인가요?",
+        "options": ["The Chaos Chapter", "The Name Chapter: TEMPTATION", "minisode 2", "The Name Chapter: FREEFALL"],
+        "answer": 1,
+        "explanation": "'Sugar Rush Ride'는 2023년 'The Name Chapter: TEMPTATION'의 타이틀곡입니다.",
+        "difficulty": "medium"
+      },
+      {
+        "id": "sng011",
+        "question": "ITZYの'WANNABE'に出てくる有名な歌詞は?",
+        "options": ["I'm not sorry", "I don't wanna be somebody", "Just wanna be myself", "All about me"],
+        "answer": 1,
+        "explanation": "'WANNABE'のサ비'I don't wanna be somebody, Just wanna be me'は非常に有名です。",
+        "difficulty": "easy"
+      },
+      {
+        "id": "sng012",
+        "question": "PSYの'Gangnam Style'はいつ発表されましたか?",
+        "options": ["2010年", "2011年", "2012年", "2013年"],
+        "answer": 2,
+        "explanation": "'Gangnam Style'は2012年7月に発表され、世界的に大ヒットしました。",
+        "difficulty": "easy"
+      },
+      {
+        "id": "sng013",
+        "question": "Girls’ Generationの'Gee'はいつ発表されましたか?",
+        "options": ["2007年", "2008年", "2009年", "2010年"],
+        "answer": 2,
+        "explanation": "'Gee'は2009年1月に発表され、大ヒットしました。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "sng014",
+        "question": "BIGBANGの'Fantastic Baby'はいつ発表されましたか?",
+        "options": ["2010年", "2011年", "2012年", "2013年"],
+        "answer": 2,
+        "explanation": "'Fantastic Baby'は2012年2月に発表されました。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "sng015",
+        "question": "2NE1の'I Am The Best'はいつ発表されましたか?",
+        "options": ["2009年", "2010年", "2011年", "2012年"],
+        "answer": 2,
+        "explanation": "'I Am The Best'は2011年6月に発表されました。",
+        "difficulty": "medium"
+      }
+    ],
+    "general": [
+      {
+        "id": "gen001",
+        "question": "TWICEのファンダム名は?",
+        "options": ["ONCE", "MOA", "CARAT", "MIDZY"],
+        "answer": 0,
+        "explanation": "TWICEとファンが一緒にいれば'TWICE'になるという意味で'ONCE'です。",
+        "difficulty": "easy"
+      },
+      {
+        "id": "gen002",
+        "question": "BTSのファンダム名は?",
+        "options": ["BLINK", "ARMY", "EXO-L", "VIP"],
+        "answer": 1,
+        "explanation": "BTSの公式ファンダム名は'ARMY'です。",
+        "difficulty": "easy"
+      },
+      {
+        "id": "gen003",
+        "question": "BLACKPINKのファンダム名は?",
+        "options": ["BLINK", "PINK", "ROSE", "LILY"],
+        "answer": 0,
+        "explanation": "BLACKPINKの公式ファンダム名は'BLINK'です。",
+        "difficulty": "easy"
+      },
+      {
+        "id": "gen004",
+        "question": "SEVENTEENのファンダム名は?",
+        "options": ["ONCE", "CARAT", "MOA", "STAY"],
+        "answer": 1,
+        "explanation": "SEVENTEENのファンダム名は'CARAT'です。",
+        "difficulty": "easy"
+      },
+      {
+        "id": "gen005",
+        "question": "Stray Kidsのファンダム名は?",
+        "options": ["STAY", "SKZ", "ZONE", "LEVANTER"],
+        "answer": 0,
+        "explanation": "Stray Kidsのファンダム名は'STAY'です。",
+        "difficulty": "easy"
+      },
+      {
+        "id": "gen006",
+        "question": "EXOのファンダム名は?",
+        "options": ["EXO-L", "EXO-K", "EXOTIC", "EXOTICS"],
+        "answer": 0,
+        "explanation": "EXOのファンダム名は'EXO-L'です。",
+        "difficulty": "easy"
+      },
+      {
+        "id": "gen007",
+        "question": "ITZYのファンダム名は?",
+        "options": ["ITZY", "MIDZY", "ITZONE", "WANNABE"],
+        "answer": 1,
+        "explanation": "ITZYのファンダム名は'MIDZY'です。",
+        "difficulty": "easy"
+      },
+      {
+        "id": "gen008",
+        "question": "TXT의 팬덤 이름은?",
+        "options": ["ARMY", "MOA", "TOMORROW", "TOGETHER"],
+        "answer": 1,
+        "explanation": "TXT의 팬덤 이름은 'MOA'(Moments Of Alwaysness)입니다.",
+        "difficulty": "medium"
+      },
+      {
+        "id": "gen009",
+        "question": "Red Velvetのファンダム名は?",
+        "options": ["VELVET", "REVELUV", "REDLUV", "REVEL"],
+        "answer": 1,
+        "explanation": "Red Velvetのファンダム名は'ReVeluv'です。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "gen010",
+        "question": "NCTのファンダム名は?",
+        "options": ["NCTzen", "NCTIZENS", "NEOCITY", "NEOS"],
+        "answer": 0,
+        "explanation": "NCTのファンダム名は'NCTzen'です。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "gen011",
+        "question": "aespaのファンダム名は?",
+        "options": ["MY", "SYNK", "NÆVIS", "AE"],
+        "answer": 0,
+        "explanation": "aespaのファンダム名は'MY'です。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "gen012",
+        "question": "(G)I-DLEのファンダム名は?",
+        "options": ["NEVERLAND", "IDLE", "TOMBOY", "QUEENDOM"],
+        "answer": 0,
+        "explanation": "(G)I-DLEのファンダム名は'NEVERLAND'です。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "gen013",
+        "question": "NewJeansのファンダム名は?",
+        "options": ["Bunnies", "Jeans", "Tokki", "NewBies"],
+        "answer": 0,
+        "explanation": "NewJeansのファンダム名は'Bunnies'(トッキズ)です。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "gen014",
+        "question": "IVE의 팬덤 이름은?",
+        "options": ["DIVE", "DIVER", "IVE", "ELEVEN"],
+        "answer": 0,
+        "explanation": "IVE의 공식 팬덤 이름은 'DIVE'입니다.",
+        "difficulty": "easy"
+      },
+      {
+        "id": "gen015",
+        "question": "LE SSERAFIMのファンダム名は?",
+        "options": ["FEARNOT", "FEARLESS", "SERAPHIM", "ANGELS"],
+        "answer": 0,
+        "explanation": "LE SSERAFIMのファンダム名は'FEARNOT'(フィアナット)です。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "gen016",
+        "question": "ENHYPENのファンダム名は?",
+        "options": ["ENHA", "ENGENE", "HYPE", "BORDER"],
+        "answer": 1,
+        "explanation": "ENHYPENのファンダム名は'ENGENE'です。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "gen017",
+        "question": "Girls’ Generation의 팬덤 이름은?",
+        "options": ["SONE", "GOLDEN", "GG", "TAEYEON"],
+        "answer": 0,
+        "explanation": "Girls’ Generation의 팬덤 이름은 'SONE'(소원)입니다.",
+        "difficulty": "medium"
+      },
+      {
+        "id": "gen018",
+        "question": "JYP Entertainmentに所属していないグループは?",
+        "options": ["TWICE", "Stray Kids", "BLACKPINK", "ITZY"],
+        "answer": 2,
+        "explanation": "BLACKPINKはYG Entertainment所属です。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "gen019",
+        "question": "K-pop初のビルボードHot 100 1位を記録した曲は?",
+        "options": ["Gangnam Style", "Dynamite", "Butter", "Life Goes On"],
+        "answer": 1,
+        "explanation": "BTSの'Dynamite'が2020年K-pop初のビルボードHot 100 1位を達成しました。",
+        "difficulty": "medium"
+      },
+      {
+        "id": "gen020",
+        "question": "K-pop初のコーチェラヘッドライナーを務めたグループは?",
+        "options": ["BTS", "BLACKPINK", "SEVENTEEN", "(G)I-DLE"],
+        "answer": 1,
+        "explanation": "BLACKPINKは2023年コーチェラのヘッドライナーとしてK-pop初のステージを飾りました。",
+        "difficulty": "medium"
+      }
+    ]
+  }
+}
